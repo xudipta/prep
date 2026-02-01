@@ -2,8 +2,8 @@ package main
 
 import (
 	"fmt"
-	// "example.com/prep/problems"
-	"example.com/prep/utils"
+	// "github.com/xudipta/prep/problems"
+	"github.com/xudipta/prep/utils"
 )
 
 func main() {
