@@ -1,0 +1,45 @@
+# Binaries and build outputs
+/bin/
+/build/
+/dist/
+*.exe
+*.dll
+*.so
+*.dylib
+*.out
+*.test
+
+# Go package objects
+/pkg/
+
+# Vendor directory (optional to track)
+/vendor/
+
+# Coverage
+coverage.out
+
+# Editor directories and files
+.vscode/
+.idea/
+*.swp
+*~
+.DS_Store
+
+# Python virtualenvs and env files
+.venv/
+env/
+venv/
+
+# Logs
+*.log
+
+# Temporary files
+*.tmp
+*.bak
+
+# Scripts output
+/playground/*.out
+/playground/*.exe
+
+# Ignore OS files
+Thumbs.db
