@@ -8,7 +8,7 @@ import (
 
 func main() {
 	fmt.Println("Welcome to the Prep Playground!")
-	
+
 	// Example usage of utils.Sum
 	nums := []int{1, 2, 3, 4, 5}
 	sum := utils.Sum(nums)
