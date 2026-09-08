@@ -10,14 +10,14 @@ value (just membership). Go's built-in `map[K]V` implements this directly.
 
 ```mermaid
 flowchart LR
-    K1["key: \"a\""] -->|hash| H1["bucket 2"]
-    K2["key: \"b\""] -->|hash| H2["bucket 0"]
-    K3["key: \"c\""] -->|hash| H1
-    subgraph buckets ["buckets (array)"]
+    K1["key: a"] -->|hash| H1["bucket 2"]
+    K2["key: b"] -->|hash| H2["bucket 0"]
+    K3["key: c"] -->|hash| H1
+    subgraph buckets [buckets array]
     direction TB
-    Bk0["bucket 0: [(\"b\", 2)]"]
-    Bk1["bucket 1: [ ]"]
-    Bk2["bucket 2: [(\"a\", 1), (\"c\", 3)]"]
+    Bk0["bucket 0: entry b, 2"]
+    Bk1["bucket 1: empty"]
+    Bk2["bucket 2: entries a,1 and c,3"]
     end
     H1 -.-> Bk2
     H2 -.-> Bk0

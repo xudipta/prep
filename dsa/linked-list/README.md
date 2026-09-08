@@ -46,9 +46,9 @@ sequenceDiagram
     participant prev
     participant curr
     participant next
-    Note over prev,next: next := curr.Next  (save it first!)
-    Note over prev,next: curr.Next = prev  (reverse the link)
-    Note over prev,next: prev = curr; curr = next  (advance both)
+    Note over prev,next: next := curr.Next (save it first!)
+    Note over prev,next: curr.Next = prev (reverse the link)
+    Note over prev,next: prev = curr, then curr = next (advance both)
 ```
 
 Saving `next` *before* overwriting `curr.Next` is the one step that
