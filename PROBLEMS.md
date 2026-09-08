@@ -27,6 +27,21 @@ duplicate was left out.
 | 19 | [Lowest Common Ancestor of a BST](dsa/trees/problems/lowest-common-ancestor-bst/README.md) | Tree | BST property | Easy | Use BST ordering to decide direction instead of searching both subtrees |
 | 20 | [Subsets](dsa/backtracking/problems/subsets/README.md) | Array | Backtracking | Medium | Include/exclude decision tree over every element |
 | 21 | [N-Queens](dsa/backtracking/problems/n-queens/README.md) | Backtracking | Backtracking + pruning | Hard | Constraint tracking (columns/diagonals) to prune the search space early |
+| 22 | [Subarray Sum Equals K](dsa/prefix-sum/problems/subarray-sum-equals-k/README.md) | Array | Prefix Sum + Hashing | Medium | Complement lookup on running prefix sums, seeded with `{0:1}` |
+| 23 | [Range Sum Query - Immutable](dsa/prefix-sum/problems/range-sum-query-immutable/README.md) | Array | Prefix Sum | Easy | O(1) range queries after O(n) precomputation |
+| 24 | [Jump Game](dsa/greedy/problems/jump-game/README.md) | Array | Greedy | Medium | Running "furthest reachable" bound, extended greedily |
+| 25 | [Gas Station](dsa/greedy/problems/gas-station/README.md) | Array | Greedy | Medium | Running deficit resets the candidate start in one pass |
+| 26 | [Valid Parentheses](dsa/stack/problems/valid-parentheses/README.md) | String | Stack | Easy | LIFO matching of nested opener/closer pairs |
+| 27 | [Daily Temperatures](dsa/stack/problems/daily-temperatures/README.md) | Array | Monotonic Stack | Medium | Next-greater-element via a decreasing stack of indices |
+| 28 | [Reverse Linked List](dsa/linked-list/problems/reverse-linked-list/README.md) | Linked List | Linked List | Easy | In-place pointer reversal with `prev/curr/next` |
+| 29 | [Merge Two Sorted Lists](dsa/linked-list/problems/merge-two-sorted-lists/README.md) | Linked List | Linked List | Easy | Dummy head + pointer-per-list merge |
+| 30 | [Single Number](dsa/bit-manipulation/problems/single-number/README.md) | Array | Bit Manipulation | Easy | XOR self-cancellation finds the unpaired element |
+| 31 | [Counting Bits](dsa/bit-manipulation/problems/counting-bits/README.md) | Bit Manipulation | Bit Manipulation + DP | Easy | `n & (n-1)` recurrence reuses a smaller already-computed popcount |
+| 32 | [Redundant Connection](dsa/union-find/problems/redundant-connection/README.md) | Graph | Union-Find | Medium | First edge whose endpoints are already connected creates the cycle |
+| 33 | [Number of Provinces](dsa/union-find/problems/number-of-provinces/README.md) | Graph | Union-Find | Medium | Component count decreases by one on each successful union |
+| 34 | [Network Delay Time](dsa/graphs/problems/network-delay-time/README.md) | Graph | Dijkstra | Medium | Min-heap finalizes the closest unvisited node first |
+| 35 | [Longest Common Subsequence](dsa/dynamic-programming/problems/longest-common-subsequence/README.md) | String DP | Dynamic Programming | Medium | 2D DP comparing two sequences position by position |
+| 36 | [Longest Increasing Subsequence](dsa/dynamic-programming/problems/longest-increasing-subsequence/README.md) | Sequence DP | DP + Binary Search | Medium | Patience sorting: track the smallest tail per achievable length |
 
 More problems are added incrementally — see `PROGRESS.md` for what's planned
 next. Every addition must answer "what new idea does this teach?" before it's

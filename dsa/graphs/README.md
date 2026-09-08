@@ -134,7 +134,9 @@ of a node's dependencies are guaranteed to be processed first.
 
 ## Union-Find / DSU
 
-See [`data-structures/disjoint-set-union.md`](../../data-structures/disjoint-set-union.md)
+See [`dsa/union-find`](../union-find/README.md) for the problem-solving
+pattern and representative problems, and
+[`data-structures/disjoint-set-union.md`](../../data-structures/disjoint-set-union.md)
 for the full implementation. Used for dynamic connectivity queries and as
 the core of Kruskal's MST algorithm.
 
@@ -147,8 +149,10 @@ the core of Kruskal's MST algorithm.
 | Bellman-Ford | Weighted, negative allowed | O(V·E) | Negative edges, or need to detect negative cycles |
 | Floyd-Warshall | All-pairs | O(V³) | Need shortest paths between *every* pair, V is small |
 
-(Dijkstra/Bellman-Ford/Floyd-Warshall implementations and problems are
-planned — see `PROGRESS.md`.)
+Dijkstra is implemented with a min-heap in
+[`problems/network-delay-time`](problems/network-delay-time/README.md).
+Bellman-Ford and Floyd-Warshall implementations and problems are still
+planned — see `PROGRESS.md`.
 
 ## Minimum Spanning Tree
 

@@ -76,14 +76,14 @@ Space Complexity:
 | Subset Sum | planned | variant of 0/1 Knapsack with a boolean objective |
 | Partition DP | planned | e.g. Palindrome Partitioning |
 | String DP | planned | e.g. Edit Distance |
-| Longest Common Subsequence | planned | classic 2D string DP |
-| Longest Increasing Subsequence | planned | O(n²) and O(n log n) variants |
+| Longest Common Subsequence | ✅ | [Longest Common Subsequence](problems/longest-common-subsequence/README.md) |
+| Longest Increasing Subsequence | ✅ | [Longest Increasing Subsequence](problems/longest-increasing-subsequence/README.md) (O(n log n)) |
 | Interval DP | planned | e.g. Matrix Chain Multiplication, Burst Balloons |
 | Tree DP | planned | e.g. House Robber III, Diameter with DP |
 | State Machine DP | planned | e.g. Best Time to Buy/Sell Stock with cooldown |
 | Bitmask DP | planned | e.g. Traveling Salesman on small N |
 | Digit DP | planned | e.g. counting numbers with a digit property |
-| DP + Binary Search | planned | e.g. LIS in O(n log n) |
+| DP + Binary Search | ✅ | Implemented as part of [Longest Increasing Subsequence](problems/longest-increasing-subsequence/README.md) |
 | DP on DAGs | planned | e.g. Longest Path in a DAG |
 
 See `dp-pattern-recognition.md` for the full decision framework used to pick
