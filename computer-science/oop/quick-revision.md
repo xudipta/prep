@@ -27,3 +27,15 @@
   modules), high cohesion (each module does one focused thing).
 - **Dependency Injection**: pass interfaces into constructors instead of
   constructing dependencies internally — enables substitution/testing.
+
+**Cross-language quick facts** (full detail in
+[`language-specific-notes.md`](language-specific-notes.md)):
+- Virtual dispatch: C++ explicit (`virtual` + vtable); Java implicit
+  (default); Go has none (uses interfaces instead).
+- Multiple inheritance: C++ allows it (diamond problem solved via
+  `virtual` inheritance); Java allows only multiple *interfaces*; Go has
+  no inheritance at all.
+- Destructors: C++ has deterministic RAII destructors; Java/Go rely on
+  garbage collection (Java: `try-with-resources`; Go: `defer`).
+- Operator/method overloading: C++ supports both; Java supports method
+  overloading only; Go supports neither.

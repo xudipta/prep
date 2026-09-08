@@ -39,6 +39,7 @@
 - **Computer Science**
   - [OOP](computer-science/oop/README.md)
     - [OOP Quick Revision](computer-science/oop/quick-revision.md)
+    - [OOP: C++ / Java / Go Notes](computer-science/oop/language-specific-notes.md)
   - [Operating Systems](computer-science/operating-systems/README.md)
   - [Databases](computer-science/databases/README.md)
   - [Networking](computer-science/networking/README.md)

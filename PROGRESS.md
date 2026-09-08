@@ -72,6 +72,9 @@ planned but not yet written — see the repo's contribution guide in the root
 ## Computer Science Fundamentals (`computer-science/`)
 
 - [x] OOP
+  - [x] Language-specific notes (C++, Java, Go: virtual functions, abstract
+    classes/interfaces, multiple inheritance, constructors/destructors,
+    operator overloading)
 - [x] Operating Systems
 - [x] Databases
 - [x] Networking

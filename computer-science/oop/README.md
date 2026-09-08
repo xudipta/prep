@@ -1,6 +1,10 @@
 # Object-Oriented Programming — Revision Notes
 
 For the one-screen version, see [`quick-revision.md`](quick-revision.md).
+For how these concepts differ across C++, Java, and Go specifically
+(virtual functions/vtables, abstract classes vs. interfaces, multiple
+inheritance, constructors/destructors, operator overloading), see
+[`language-specific-notes.md`](language-specific-notes.md).
 
 ## Class and Object
 
@@ -96,6 +100,12 @@ func (d Dog) Speak() string { return d.Name + " barks" } // shadows Animal.Speak
 composition with method promotion — there's no polymorphic dispatch through
 a base-type reference the way there is with classical inheritance.
 
+*C++ allows multiple inheritance directly (with `virtual` inheritance to
+solve the resulting diamond problem); Java allows only single class
+inheritance plus multiple interface implementation. See
+[`language-specific-notes.md`](language-specific-notes.md#multiple-inheritance-and-the-diamond-problem)
+for the details and code.*
+
 ## Polymorphism
 
 **Question:** How does Go achieve polymorphism without classes?
@@ -188,6 +198,10 @@ design — there's no compiler-enforced "abstract method."
 substitute for an abstract class with shared logic — it isn't; interfaces
 carry zero implementation.
 
+*See [`language-specific-notes.md`](language-specific-notes.md#abstract-classes-vs-interfaces)
+for how C++ (no dedicated keyword) and Java (`abstract class` + `interface`,
+with `default` methods since Java 8) handle this differently.*
+
 ## Method Overloading vs. Method Overriding
 
 **Question:** Does Go support method overloading or overriding?
@@ -204,6 +218,11 @@ embedded type's method, which *shadows* it for direct calls, but this
 isn't dynamic dispatch — it's straightforward method resolution based on
 the static type.
 
+*C++ and Java both support real method overloading (resolved by signature
+at compile time) — see
+[`language-specific-notes.md`](language-specific-notes.md#method-overloading-revisited-per-language)
+for the mechanism in each, and how it differs from overriding.*
+
 ## Static vs. Dynamic Binding
 
 **Question:** What determines which method implementation runs in Go?
@@ -218,6 +237,12 @@ direct compile-time-resolved call.
 **Common Misconception:** Assuming Go has no dynamic dispatch at all
 because it has no inheritance — dynamic dispatch happens through
 interfaces, just not through class hierarchies.
+
+*C++ and Java implement dynamic dispatch via an explicit vtable mechanism
+instead — see
+[`language-specific-notes.md`](language-specific-notes.md#virtual-functions-and-the-vtable)
+for how the `virtual` keyword and vtables work, and why Java methods are
+virtual by default while C++'s are not.*
 
 ## SOLID Principles
 
