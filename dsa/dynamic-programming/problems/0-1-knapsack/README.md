@@ -34,6 +34,20 @@ both dimensions.
 - Each item usable **at most once** (if items were reusable, it would be
   *unbounded* knapsack instead, with a different iteration order).
 
+## Visual Overview
+
+`weights=[1,3,4,5]`, `values=[1,4,5,7]`, `W=7` — the 1D rolling table
+after processing all four items (capacity `w` iterated **descending** per
+item so each item is only used once):
+
+```mermaid
+flowchart LR
+    W0["dp[0]=0"] --- W1["dp[1]=1"] --- W2["dp[2]=1"] --- W3["dp[3]=4"] --- W4["dp[4]=5"] --- W5["dp[5]=7"] --- W6["dp[6]=8"] --- W7["dp[7]=9"]
+```
+
+`dp[7] = 9` comes from taking the weight-3/value-4 and weight-4/value-5
+items together (`3+4=7 ≤ 7`, `4+5=9`).
+
 ## Deriving the Recurrence
 
 1. **Decision**: for item `i`, include it in the knapsack or not.

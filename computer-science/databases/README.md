@@ -69,6 +69,31 @@ B+Tree variant) specifically because of this range-query support.
 - **Durability**: once committed, a transaction's effects survive crashes
   (typically via a write-ahead log).
 
+## Visual Overview
+
+A dirty read — Transaction B reads Transaction A's uncommitted change,
+then A rolls back, leaving B holding a value that never really existed
+(only possible at Read Uncommitted):
+
+```mermaid
+sequenceDiagram
+    participant A as Transaction A
+    participant DB as Database
+    participant B as Transaction B
+    A->>DB: UPDATE balance = 100 (uncommitted)
+    B->>DB: SELECT balance
+    DB-->>B: 100 (dirty read!)
+    A->>DB: ROLLBACK
+    Note over B: B now holds a value<br/>that was never committed
+```
+
+```mermaid
+flowchart LR
+    RU["Read Uncommitted"] --> RC["Read Committed\n(no dirty reads)"]
+    RC --> RR["Repeatable Read\n(+ no non-repeatable reads)"]
+    RR --> S["Serializable\n(+ no phantom reads)"]
+```
+
 ## Isolation Levels
 
 | Level | Prevents | Allows |

@@ -33,6 +33,20 @@ answer only needs to track the best achievable result up to each prefix.
   results for `i-1` and `i-2` — a small, fixed lookback window, same shape
   as Climbing Stairs but with a max instead of a sum.
 
+## Visual Overview
+
+`nums = [2,7,9,3,1]` — rolling `prev2, prev1` (dp two steps back, one
+step back):
+
+```mermaid
+flowchart LR
+    A["v=2\nmax(0, 2+0)=2"] --> B["v=7\nmax(2, 7+0)=7"]
+    B --> C["v=9\nmax(7, 9+2)=11"]
+    C --> D["v=3\nmax(11, 3+7)=11"]
+    D --> E["v=1\nmax(11, 1+11)=12"]
+    E --> Ret(["answer: 12\n(rob indices 0,2,4 → 2+9+1)"])
+```
+
 ## Deriving the Recurrence
 
 1. **Decision**: at house `i`, rob it or skip it.

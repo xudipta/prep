@@ -7,6 +7,24 @@ O(1) index-based access. Go doesn't expose fixed-size arrays as the primary
 tool — `[]T` slices (a pointer + length + capacity over a backing array)
 are what you use in practice, growing dynamically via `append`.
 
+## Visual Overview
+
+```mermaid
+flowchart LR
+    subgraph "slice header"
+    Ptr["pointer"] --> Backing
+    Len["len = 3"]
+    Cap["cap = 5"]
+    end
+    subgraph Backing["backing array (capacity 5)"]
+    direction LR
+    E0["a[0]"] --- E1["a[1]"] --- E2["a[2]"] --- U1["(unused)"] --- U2["(unused)"]
+    end
+```
+
+`len` is how many elements are in use; `cap` is how much backing-array
+room exists before the next `append` must allocate a new, larger array.
+
 ## Operations & Complexity
 
 | Operation | Complexity | Notes |

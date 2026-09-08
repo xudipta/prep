@@ -16,6 +16,18 @@ In practice, most engineers reason in terms of the simpler **TCP/IP model**
 (Application, Transport, Internet, Link), which maps roughly onto the OSI
 layers above.
 
+## Visual Overview
+
+```mermaid
+sequenceDiagram
+    participant C as Client
+    participant S as Server
+    C->>S: SYN (seq=x)
+    S->>C: SYN-ACK (seq=y, ack=x+1)
+    C->>S: ACK (ack=y+1)
+    Note over C,S: Connection established
+```
+
 ## TCP vs. UDP
 
 | | TCP | UDP |

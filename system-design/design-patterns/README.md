@@ -12,6 +12,26 @@ Strategy) almost trivial to express — worth mentioning explicitly in an
 interview to show you understand the pattern's *purpose*, not just its
 textbook structure.
 
+## Visual Overview
+
+**Observer** — the subject holds a list of observers and calls each on a
+state change, without knowing their concrete types:
+
+```mermaid
+flowchart LR
+    Subject["Subject"] -->|"Notify(event)"| O1["Observer A"]
+    Subject -->|"Notify(event)"| O2["Observer B"]
+    Subject -->|"Notify(event)"| O3["Observer C"]
+```
+
+**Decorator** — each layer wraps the same interface, adding behavior
+before/after delegating inward:
+
+```mermaid
+flowchart LR
+    Caller --> L1["LoggingFetcher"] --> L2["CachingFetcher"] --> Core["HTTPFetcher\n(the real implementation)"]
+```
+
 ## Singleton
 
 **Problem it solves**: ensure a type has exactly one instance, with a

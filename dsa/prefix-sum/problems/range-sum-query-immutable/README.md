@@ -24,6 +24,16 @@ Since the array never changes, precompute a prefix-sum array once. Each
 `SumRange(i, j)` query then reduces to a single subtraction:
 `prefix[j+1] - prefix[i]`.
 
+## Visual Overview
+
+`nums = [-2,0,3,-5,2,-1]` → `prefix = [0,-2,-2,1,-4,-2,-3]`:
+
+```mermaid
+flowchart LR
+    P["prefix: 0,-2,-2,1,-4,-2,-3"] --> Q1["SumRange(0,2) = prefix[3]-prefix[0] = 1-0 = 1"]
+    P --> Q2["SumRange(2,5) = prefix[6]-prefix[2] = -3-(-2) = -1"]
+```
+
 ## How to Recognize This Pattern
 
 - "The array doesn't change" + "many range queries" together are the exact

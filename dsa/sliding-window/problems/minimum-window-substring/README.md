@@ -28,6 +28,19 @@ and a running `have` counter (how many distinct required characters are
 currently fully satisfied) let you check "is the window valid?" in O(1)
 instead of comparing full frequency maps.
 
+## Visual Overview
+
+`s = "ADOBECODEBANC"`, `t = "ABC"` — the window expands until it covers
+A, B, and C, then shrinks from the left as far as it can while staying
+valid:
+
+```mermaid
+flowchart LR
+    Grow["expand right until\nhave == required (3)\nfirst valid window: \"ADOBEC\" (len 6)"] --> Shrink["shrink left while still valid\n(len can't improve further here)"]
+    Shrink --> Later["later, a shorter valid window\nis found: \"BANC\" (len 4)"]
+    Later --> Best["best = \"BANC\""]
+```
+
 ## How to Recognize This Pattern
 
 - "Minimum/shortest substring/subarray containing/satisfying..." is the

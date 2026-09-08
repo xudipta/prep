@@ -34,6 +34,21 @@ Two facts combine into an O(n) greedy solution:
    hit the same or an earlier shortfall. So the next candidate to try is
    `i+1`.
 
+## Visual Overview
+
+`gas=[1,2,3,4,5]`, `cost=[3,4,5,1,2]` — every candidate start from 0
+through 2 fails and is ruled out at once; station 3 is where the tank
+never goes negative again:
+
+```mermaid
+flowchart LR
+    S0["start=0: diff=-2 → tank=-2 < 0\nstart=1"] --> S1["start=1: diff=-2 → tank=-2 < 0\nstart=2"]
+    S1 --> S2["start=2: diff=-2 → tank=-2 < 0\nstart=3"]
+    S2 --> S3["start=3: diff=+3 → tank=3 ≥ 0"]
+    S3 --> S4["start=3: diff=+3 → tank=6 ≥ 0"]
+    S4 --> Ret(["totalTank=0 ≥ 0 → answer: start=3"])
+```
+
 ## How to Recognize This Pattern
 
 - "Find a valid starting point for a circular resource-feasibility

@@ -33,6 +33,36 @@ partition* (outside of a partition, you can have both C and A).
   data during a partition, reconciling later (e.g., DNS, many NoSQL stores
   configured for high availability).
 
+## Visual Overview
+
+**CAP**, during a network partition — you can keep responding
+(Availability) or refuse to risk a stale answer (Consistency), not both:
+
+```mermaid
+flowchart TD
+    P["Network partition occurs"] --> Choice{"Choose"}
+    Choice -->|"CP"| C["Reject/block requests\nuntil consistency is restored"]
+    Choice -->|"AP"| A["Keep serving requests,\npossibly with stale data"]
+```
+
+**Cache-aside**, the default read pattern:
+
+```mermaid
+sequenceDiagram
+    participant App
+    participant Cache
+    participant DB
+    App->>Cache: get(key)
+    alt cache hit
+        Cache-->>App: value
+    else cache miss
+        Cache-->>App: (miss)
+        App->>DB: query(key)
+        DB-->>App: value
+        App->>Cache: set(key, value)
+    end
+```
+
 ## Consistency Models
 
 - **Strong consistency**: all reads reflect the latest write immediately.

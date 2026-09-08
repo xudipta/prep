@@ -24,6 +24,20 @@ Every closing bracket must match the **most recently opened, still-unclosed**
 bracket — exactly the LIFO behavior a stack provides. Push openers; on a
 closer, check that it matches the top of the stack.
 
+## Visual Overview
+
+`s = "{[()]}"` — every closer matches the most recently pushed opener:
+
+```mermaid
+flowchart LR
+    Push1["push curly-open\nstack top: curly-open"] --> Push2["push square-open\nstack top: square-open"]
+    Push2 --> Push3["push round-open\nstack top: round-open"]
+    Push3 --> Pop1["round-close matches\nround-open → pop"]
+    Pop1 --> Pop2["square-close matches\nsquare-open → pop"]
+    Pop2 --> Pop3["curly-close matches\ncurly-open → pop"]
+    Pop3 --> Ret(["stack empty → valid"])
+```
+
 ## How to Recognize This Pattern
 
 - "Matching" or "nesting" of paired tokens is the canonical stack signal —

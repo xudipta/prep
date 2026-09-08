@@ -35,6 +35,22 @@ brute-force recursion is the single biggest reason DP feels like magic
 instead of mechanical — see the pattern-recognition guide for a full
 decision framework.
 
+## Visual Overview
+
+The mechanical process every DP problem in this repo follows:
+
+```mermaid
+flowchart TD
+    A["Write the brute-force\nrecursion first"] --> B{"Same subproblem\ncomputed more than once?"}
+    B -- no --> C(["Not DP — plain recursion\nor Divide & Conquer"])
+    B -- yes --> D["Identify the state:\nwhat varies between calls?"]
+    D --> E["Derive the transition\nfrom the problem's own rules"]
+    E --> F["Define the base case(s)"]
+    F --> G{"Need every past value,\nor just the last few?"}
+    G -- "just the last few" --> H["Top-down memoization\nor bottom-up + rolling variables"]
+    G -- "every past value" --> I["Bottom-up: full table,\nfilled in dependency order"]
+```
+
 ## How to Derive a Recurrence (not just present one)
 
 For any DP problem, answer these in order:

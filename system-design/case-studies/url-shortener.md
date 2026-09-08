@@ -21,6 +21,35 @@
 - Uniqueness: no two long URLs should silently collide on the same short
   alias.
 
+## Visual Overview
+
+```mermaid
+flowchart LR
+    Client["Client"] --> LB["Load Balancer"]
+    LB --> App["App Servers\n(stateless)"]
+    App --> Cache[("Cache\n(hot aliases)")]
+    App --> DB[("Database\nsharded by alias")]
+    App --> IDGen["ID Generation"]
+```
+
+```mermaid
+sequenceDiagram
+    participant C as Client
+    participant App as App Server
+    participant Cache
+    participant DB
+    C->>App: GET /{alias}
+    App->>Cache: lookup(alias)
+    alt cache hit
+        Cache-->>App: longUrl
+    else cache miss
+        App->>DB: lookup(alias)
+        DB-->>App: longUrl
+        App->>Cache: populate(alias, longUrl)
+    end
+    App-->>C: 301/302 redirect to longUrl
+```
+
 ## Capacity Estimation
 
 Assume 100 million new URLs/month, 10-year retention, average record size

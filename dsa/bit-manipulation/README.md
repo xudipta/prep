@@ -28,6 +28,37 @@ need O(n).
 - Need O(1) space where a hash set would otherwise be used, and the value
   range is small/bounded.
 
+## Visual Overview
+
+XOR's self-cancellation is the mechanism behind "find the unique element"
+(every duplicate pair cancels to zero, in any order, since XOR is
+commutative and associative):
+
+```mermaid
+flowchart LR
+    subgraph nums ["nums = [4, 1, 2, 1, 2]"]
+    direction LR
+    V4["4"]
+    A1["1"]
+    B2["2"]
+    A2["1"]
+    B3["2"]
+    end
+    A1 <-->|"1 xor 1 = 0"| A2
+    B2 <-->|"2 xor 2 = 0"| B3
+    V4 -.->|"nothing to cancel with"| Result(["XOR of all five = 4"])
+```
+
+`n & (n-1)` is the other core trick — it clears the **lowest set bit**,
+which is what lets popcount-style problems reuse an already-computed
+smaller result:
+
+```mermaid
+flowchart LR
+    N["n = 0b1011 (11)"] -->|"n & (n-1)"| M["0b1010 (10)"]
+    M -.->|"lowest set bit\n(0b0001) cleared"| Note["one fewer 1-bit than n"]
+```
+
 ## Generic Toolkit
 
 ```go

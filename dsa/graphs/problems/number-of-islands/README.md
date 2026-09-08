@@ -26,6 +26,27 @@ islands is exactly counting connected components — flood-fill (BFS or DFS)
 from every unvisited land cell, incrementing a counter once per fill, and
 mark every cell reached as visited so it's never counted again.
 
+## Visual Overview
+
+```
+11000        island 1: (0,0),(0,1),(1,0),(1,1)
+11000        island 2: (2,2)
+00100        island 3: (3,3),(3,4)
+00011
+```
+
+```mermaid
+flowchart LR
+    C1["(0,0)"] --- C2["(0,1)"]
+    C1 --- C3["(1,0)"]
+    C3 --- C4["(1,1)"]
+    C2 --- C4
+    C5(("(2,2), isolated"))
+    C6["(3,3)"] --- C7["(3,4)"]
+```
+
+Three connected components of `'1'` cells → 3 islands.
+
 ## How to Recognize This Pattern
 
 - A grid where "connectivity" is defined by adjacency between cells with a

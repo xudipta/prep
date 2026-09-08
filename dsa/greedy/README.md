@@ -29,6 +29,24 @@ is "safe."
   solution — and (critically) you can articulate *why* an earlier
   suboptimal-seeming choice can never help later.
 
+## Visual Overview
+
+```mermaid
+flowchart TD
+    Sort["sort items by the\nproblem-specific key"] --> Init["result = initial()"]
+    Init --> Loop{"more items?"}
+    Loop -- yes --> Item["take next item"]
+    Item --> Feasible{"canTake(result, item)?"}
+    Feasible -- yes --> Take["result = update(result, item)"]
+    Take --> Loop
+    Feasible -- no --> Skip["skip item"] --> Loop
+    Loop -- no --> Done(["return result"])
+```
+
+The loop itself is never the hard part — the work is in proving the
+`canTake`/`update` rule is *safe*: that taking the locally-best item can
+never rule out a globally optimal solution (the exchange argument).
+
 ## Generic Template
 
 Most greedy algorithms follow this shape:

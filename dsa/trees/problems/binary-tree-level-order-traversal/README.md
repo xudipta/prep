@@ -26,6 +26,23 @@ processing it — that length is exactly the number of nodes in the current
 level, since every node enqueued during this level's processing belongs to
 the *next* level.
 
+## Visual Overview
+
+```mermaid
+graph TD
+    A((3)) --> B((9))
+    A --> C((20))
+    C --> D((15))
+    C --> E((7))
+```
+
+```mermaid
+flowchart LR
+    L0["level 0: queue=[3]\nemit [3]"] --> L1["level 1: queue=[9,20]\nemit [9,20]"]
+    L1 --> L2["level 2: queue=[15,7]\nemit [15,7]"]
+    L2 --> Ret(["result: [[3],[9,20],[15,7]]"])
+```
+
 ## How to Recognize This Pattern
 
 - "Level by level," "row by row," or "level order" in the problem statement

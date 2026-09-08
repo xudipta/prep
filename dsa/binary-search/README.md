@@ -26,6 +26,24 @@ generalization interviewers look for beyond "binary search a sorted array."
 - The answer space itself (not the input array) is what you should binary
   search over.
 
+## Visual Overview
+
+**Classic search** (matches the `lo <= hi` template below):
+
+```mermaid
+flowchart TD
+    Start(["lo = 0, hi = n-1"]) --> Check{"lo <= hi ?"}
+    Check -- no --> NotFound(["return -1"])
+    Check -- yes --> Mid["mid = lo + (hi-lo)/2"]
+    Mid --> Cmp{"arr[mid]\nvs target"}
+    Cmp -- "== target" --> Found(["return mid"])
+    Cmp -- "< target" --> Lo["lo = mid + 1"] --> Check
+    Cmp -- "> target" --> Hi["hi = mid - 1"] --> Check
+```
+
+Every comparison discards one whole half of the remaining range — that
+halving is what turns O(n) into O(log n).
+
 ## Generic Template
 
 **Classic search in a sorted array**:

@@ -10,6 +10,35 @@ requires multiple CPU cores. A concurrent program can run on a single core
 (interleaved) or across many cores (parallel) — concurrency is what makes
 parallelism possible, but doesn't require it.
 
+## Visual Overview
+
+A worker pool (see the code further down): one job channel feeds a fixed
+number of goroutines, and their results flow into one results channel:
+
+```mermaid
+flowchart LR
+    Jobs(["jobs channel"]) --> W1["worker 1"]
+    Jobs --> W2["worker 2"]
+    Jobs --> W3["worker 3"]
+    W1 --> Results(["results channel"])
+    W2 --> Results
+    W3 --> Results
+```
+
+An **unbuffered** channel send blocks until a receiver is ready — that
+handshake is itself a synchronization point:
+
+```mermaid
+sequenceDiagram
+    participant P as Producer
+    participant Ch as unbuffered channel
+    participant Co as Consumer
+    P->>Ch: ch <- value  (blocks)
+    Co->>Ch: v := <-ch  (blocks until sender ready)
+    Ch-->>P: unblocked
+    Ch-->>Co: unblocked, v received
+```
+
 ## Goroutines
 
 A goroutine is a lightweight, runtime-managed thread of execution — Go's

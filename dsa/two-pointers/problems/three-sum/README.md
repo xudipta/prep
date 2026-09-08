@@ -25,6 +25,18 @@ Sort the array. Fix the smallest element of a candidate triplet at index
 O(n). Doing this for every `i` gives O(n²) total, down from the brute
 force's O(n³).
 
+## Visual Overview
+
+Sorted `nums = [-4,-1,-1,0,1,2]`, anchor `i=1` (`nums[i]=-1`) — a Two-Sum
+converging scan over the rest of the array:
+
+```mermaid
+flowchart LR
+    anchor(["i=1: -1 (fixed)"])
+    lo(["lo=2: -1"]) --- mid["0"] --- hi(["hi=5: 2"])
+    anchor -.->|"target = -(-1) = 1"| Sum["nums[lo]+nums[hi] = -1+2 = 1 → match!\nrecord [-1,-1,2]"]
+```
+
 ## How to Recognize This Pattern
 
 - "Find k numbers that sum to a target" for small fixed `k` (3, 4) is a sign

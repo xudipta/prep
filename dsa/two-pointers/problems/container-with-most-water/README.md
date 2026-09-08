@@ -28,6 +28,19 @@ width smaller with the same or smaller limiting height — it can never help.
 Moving the shorter line inward is the only move that could possibly find a
 taller limiting line to compensate for the reduced width.
 
+## Visual Overview
+
+`height = [1,8,6,2,5,4,8,3,7]` — first step of the dry run: width 8,
+limited by the shorter line (`height[lo]=1`), so `lo` moves (moving `hi`
+could only shrink the width without raising the limiting height):
+
+```mermaid
+flowchart LR
+    lo(["lo=0, height=1"]) --- mid["... 6 bars between ..."] --- hi(["hi=8, height=7"])
+    lo -.->|"area = 8 × min(1,7) = 8"| Area["area = 8"]
+    Area --> Move["height[lo] < height[hi] → move lo (the shorter side)"]
+```
+
 ## How to Recognize This Pattern
 
 - "Two ends of an array/structure" + "maximize/minimize a function of both

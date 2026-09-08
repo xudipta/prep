@@ -5,6 +5,21 @@
 LIFO (last-in, first-out). In Go, a slice used with `append`/truncate at
 the end *is* a stack — no special type is needed.
 
+## Visual Overview
+
+```mermaid
+flowchart TD
+    subgraph Stack ["stack (top on the right)"]
+    direction LR
+    B["bottom: 3"] --- M["8"] --- T["top: 5"]
+    end
+    Push["Push(x)"] -.->|"adds here"| T
+    Pop["Pop()"] -.->|"removes from here"| T
+```
+
+LIFO: whatever was pushed most recently (`5`, on the right/top) is always
+the first one popped — `3` can't be touched until `8` and `5` are gone.
+
 ## Operations & Complexity
 
 | Operation | Complexity |

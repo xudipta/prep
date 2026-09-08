@@ -7,6 +7,25 @@ heap property: every parent is ≤ (min-heap) or ≥ (max-heap) its children.
 It gives O(log n) insert and O(log n) removal of the min/max element, with
 O(1) peek.
 
+## Visual Overview
+
+A min-heap (every parent ≤ its children) — note this is only *partially*
+ordered: `3` and `8` aren't directly comparable, only each is ≥ its parent
+`2`:
+
+```mermaid
+graph TD
+    A((2)) --> B((5))
+    A --> C((3))
+    B --> D((8))
+    B --> E((9))
+    C --> F((6))
+```
+
+The minimum is always the root (`2`), readable in O(1). Removing it
+requires re-heapifying — moving a leaf into the root and sifting it down
+until the heap property holds again, which takes O(log n).
+
 ## Operations & Complexity
 
 | Operation | Complexity |

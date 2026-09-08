@@ -28,6 +28,26 @@ distance), which is correct precisely because edge weights are
 non-negative: once a node is popped with its minimum distance, no future
 (necessarily longer) path can ever improve it.
 
+## Visual Overview
+
+`times=[[2,1,1],[2,3,1],[3,4,1]]`, `n=4`, `k=2` — Dijkstra finalizes the
+closest unvisited node first, popped off a min-heap by current distance:
+
+```mermaid
+flowchart LR
+    N2((2)) -->|1| N1((1))
+    N2 -->|1| N3((3))
+    N3 -->|1| N4((4))
+```
+
+```mermaid
+flowchart TD
+    A["pop (0,2): relax 2→1 (dist=1), 2→3 (dist=1)"] --> B["pop (1,1) or (1,3): no outgoing edges from 1"]
+    B --> C["pop (1,3): relax 3→4 (dist=2)"]
+    C --> D["pop (2,4): no outgoing edges"]
+    D --> Ret(["all reachable: dist={1:1,2:0,3:1,4:2}\nanswer = max = 2"])
+```
+
 ## How to Recognize This Pattern
 
 - "Minimum time/cost/distance from a single source to all other nodes,"

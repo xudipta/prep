@@ -6,18 +6,305 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0" />
   <title>Interview Prep</title>
   <meta name="description" content="DSA, System Design, and CS Fundamentals interview preparation curriculum." />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet" />
+
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/docsify@4/lib/themes/vue.css" />
+
   <style>
     :root {
-      --theme-color: #2f6feb;
+      --theme-color: #6d5ef8;
+      --accent: #6d5ef8;
+      --accent-2: #22c1c3;
+      --bg: #ffffff;
+      --bg-soft: #f6f7fb;
+      --sidebar-bg: #fafaff;
+      --text: #1f2430;
+      --text-soft: #565f75;
+      --border: #e6e8f0;
+      --code-bg: #f4f4fa;
+      --code-text: #3b3f58;
+      --link: #6d5ef8;
+      --table-header-bg: #efedfe;
+      --table-stripe: #f8f8fd;
+      --shadow: 0 1px 3px rgba(30, 30, 60, 0.06), 0 1px 2px rgba(30, 30, 60, 0.08);
     }
-    body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif; }
-    .sidebar { padding-top: 10px; }
+
+    :root[data-theme="dark"] {
+      --theme-color: #a48fff;
+      --accent: #a48fff;
+      --accent-2: #4fd1d9;
+      --bg: #14151f;
+      --bg-soft: #191a26;
+      --sidebar-bg: #14151f;
+      --text: #e7e8f3;
+      --text-soft: #a3a7bd;
+      --border: #2a2c3e;
+      --code-bg: #1c1e2c;
+      --code-text: #d8dae8;
+      --link: #b7a6ff;
+      --table-header-bg: #22233a;
+      --table-stripe: #191a2a;
+      --shadow: 0 1px 3px rgba(0, 0, 0, 0.3), 0 1px 2px rgba(0, 0, 0, 0.4);
+    }
+
+    @media (prefers-color-scheme: dark) {
+      :root:not([data-theme="light"]) {
+        --theme-color: #a48fff;
+        --accent: #a48fff;
+        --accent-2: #4fd1d9;
+        --bg: #14151f;
+        --bg-soft: #191a26;
+        --sidebar-bg: #14151f;
+        --text: #e7e8f3;
+        --text-soft: #a3a7bd;
+        --border: #2a2c3e;
+        --code-bg: #1c1e2c;
+        --code-text: #d8dae8;
+        --link: #b7a6ff;
+        --table-header-bg: #22233a;
+        --table-stripe: #191a2a;
+        --shadow: 0 1px 3px rgba(0, 0, 0, 0.3), 0 1px 2px rgba(0, 0, 0, 0.4);
+      }
+    }
+
+    * { box-sizing: border-box; }
+
+    body {
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+    }
+
+    code, pre, kbd, .lang-go, .lang-sql {
+      font-family: 'JetBrains Mono', ui-monospace, SFMono-Regular, Menlo, Consolas, monospace !important;
+    }
+
+    /* ---------- Layout chrome ---------- */
+
     .app-name-link img { display: none; }
+    .app-name-link {
+      font-weight: 700;
+      font-size: 1.15em;
+      background: linear-gradient(120deg, var(--accent), var(--accent-2));
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+    }
+
+    .sidebar {
+      background: var(--sidebar-bg);
+      border-right: 1px solid var(--border);
+      padding-top: 14px;
+    }
+
+    .sidebar ul li a {
+      color: var(--text-soft);
+      border-radius: 8px;
+      transition: background 0.15s ease, color 0.15s ease;
+    }
+
+    .sidebar ul li a:hover {
+      background: var(--bg-soft);
+      color: var(--text);
+    }
+
+    .sidebar ul li.active > a {
+      background: linear-gradient(120deg, var(--accent), var(--accent-2));
+      color: #fff !important;
+      font-weight: 600;
+    }
+
+    .sidebar-nav { padding-bottom: 40px; }
+
+    .content { background: var(--bg); }
+
+    .markdown-section {
+      max-width: 860px;
+      color: var(--text);
+    }
+
+    .markdown-section h1,
+    .markdown-section h2,
+    .markdown-section h3,
+    .markdown-section h4 {
+      font-weight: 700;
+      color: var(--text);
+    }
+
+    .markdown-section h1 {
+      border-bottom: 2px solid var(--border);
+      padding-bottom: 0.3em;
+    }
+
+    .markdown-section h2 {
+      margin-top: 2.2em;
+      border-bottom: 1px solid var(--border);
+      padding-bottom: 0.25em;
+    }
+
+    .markdown-section a {
+      color: var(--link);
+      font-weight: 500;
+    }
+
+    .markdown-section p.tip,
+    .markdown-section p.warn {
+      border-radius: 10px;
+      box-shadow: var(--shadow);
+    }
+
+    /* ---------- Code blocks ---------- */
+
+    .markdown-section pre {
+      background: var(--code-bg) !important;
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      box-shadow: var(--shadow);
+    }
+
+    .markdown-section pre > code {
+      color: var(--code-text);
+    }
+
+    .markdown-section code:not([class*="lang-"]) {
+      background: var(--code-bg);
+      color: var(--accent);
+      border-radius: 4px;
+      padding: 0.15em 0.4em;
+    }
+
+    /* ---------- Tables ---------- */
+
+    .markdown-section table {
+      border-radius: 10px;
+      overflow: hidden;
+      box-shadow: var(--shadow);
+      border: 1px solid var(--border);
+      width: 100%;
+      display: table;
+    }
+
+    .markdown-section table th {
+      background: var(--table-header-bg);
+      color: var(--text);
+      font-weight: 600;
+    }
+
+    .markdown-section table tr:nth-child(2n) {
+      background: var(--table-stripe);
+    }
+
+    .markdown-section table td,
+    .markdown-section table th {
+      border-color: var(--border);
+    }
+
+    /* wide tables scroll instead of breaking layout */
+    .markdown-section table {
+      display: block;
+      overflow-x: auto;
+    }
+
+    /* ---------- Mermaid diagrams ---------- */
+
+    .mermaid {
+      background: var(--bg-soft);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 1.25em;
+      margin: 1.5em 0;
+      box-shadow: var(--shadow);
+      display: flex;
+      justify-content: center;
+      overflow-x: auto;
+    }
+
+    /* ---------- Search ---------- */
+
+    .search input {
+      border-radius: 8px;
+      border: 1px solid var(--border);
+      background: var(--bg-soft);
+      color: var(--text);
+    }
+
+    .search .results-panel { background: var(--bg); }
+    .search h2 { color: var(--accent); }
+    .search a { color: var(--text); }
+    .search .matching-post { border-bottom: 1px solid var(--border); }
+
+    /* ---------- Scrollbar ---------- */
+
+    ::-webkit-scrollbar { width: 10px; height: 10px; }
+    ::-webkit-scrollbar-track { background: transparent; }
+    ::-webkit-scrollbar-thumb {
+      background: var(--border);
+      border-radius: 8px;
+    }
+    ::-webkit-scrollbar-thumb:hover { background: var(--text-soft); }
+
+    /* ---------- Theme toggle button ---------- */
+
+    #theme-toggle {
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+      z-index: 20;
+      width: 44px;
+      height: 44px;
+      border-radius: 50%;
+      border: 1px solid var(--border);
+      background: var(--bg-soft);
+      color: var(--text);
+      font-size: 18px;
+      cursor: pointer;
+      box-shadow: var(--shadow);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: transform 0.15s ease;
+    }
+
+    #theme-toggle:hover { transform: scale(1.08); }
+
+    .sidebar-toggle {
+      background: transparent;
+    }
+
+    .sidebar-toggle span {
+      background: var(--text);
+    }
   </style>
 </head>
 <body>
   <div id="app">Loading...</div>
+
+  <button id="theme-toggle" title="Toggle light / dark theme" aria-label="Toggle theme">🌓</button>
+
+  <script>
+    (function () {
+      var stored = null;
+      try { stored = localStorage.getItem('prep-theme'); } catch (e) {}
+      if (stored === 'light' || stored === 'dark') {
+        document.documentElement.setAttribute('data-theme', stored);
+      }
+      document.addEventListener('DOMContentLoaded', function () {
+        var btn = document.getElementById('theme-toggle');
+        btn.addEventListener('click', function () {
+          var current = document.documentElement.getAttribute('data-theme');
+          var prefersDark = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
+          var effectiveCurrent = current || (prefersDark ? 'dark' : 'light');
+          var next = effectiveCurrent === 'dark' ? 'light' : 'dark';
+          document.documentElement.setAttribute('data-theme', next);
+          try { localStorage.setItem('prep-theme', next); } catch (e) {}
+        });
+      });
+    })();
+  </script>
+
   <script>
     window.$docsify = {
       name: 'Interview Prep',
@@ -42,9 +329,86 @@
       },
       count: {
         countable: true
+      },
+      mermaidConfig: {
+        theme: 'default'
       }
     };
   </script>
+
+  <!-- Mermaid: docsify has no built-in mermaid support, so we render fenced
+       ```mermaid blocks ourselves via a small docsify plugin below. -->
+  <script src="https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.min.js"></script>
+  <script>
+    (function () {
+      function currentMermaidTheme() {
+        var mode = document.documentElement.getAttribute('data-theme');
+        if (!mode) {
+          mode = (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) ? 'dark' : 'light';
+        }
+        return mode === 'dark' ? 'dark' : 'default';
+      }
+
+      function renderOne(container, source, idSuffix) {
+        var id = 'mermaid-diagram-' + Date.now() + '-' + idSuffix;
+        try {
+          mermaid.render(id, source).then(function (result) {
+            container.innerHTML = result.svg;
+          }).catch(function (err) {
+            container.textContent = 'Diagram failed to render: ' + err.message;
+            container.style.color = '#e05252';
+          });
+        } catch (e) {
+          container.textContent = source;
+        }
+      }
+
+      function renderMermaidBlocks() {
+        if (typeof mermaid === 'undefined') return;
+        var blocks = document.querySelectorAll('.markdown-section pre[data-lang="mermaid"], .markdown-section pre.mermaid');
+
+        mermaid.initialize({ startOnLoad: false, theme: currentMermaidTheme(), securityLevel: 'loose' });
+
+        blocks.forEach(function (pre, i) {
+          var codeEl = pre.querySelector('code') || pre;
+          var source = codeEl.textContent;
+          var container = document.createElement('div');
+          container.className = 'mermaid';
+          container.setAttribute('data-mermaid-source', encodeURIComponent(source));
+          pre.replaceWith(container);
+          renderOne(container, source, i);
+        });
+      }
+
+      function rerenderExistingDiagrams() {
+        if (typeof mermaid === 'undefined') return;
+        var existing = document.querySelectorAll('.markdown-section .mermaid[data-mermaid-source]');
+        if (!existing.length) return;
+        mermaid.initialize({ startOnLoad: false, theme: currentMermaidTheme(), securityLevel: 'loose' });
+        existing.forEach(function (container, i) {
+          var source = decodeURIComponent(container.getAttribute('data-mermaid-source'));
+          renderOne(container, source, 're' + i);
+        });
+      }
+
+      window.$docsify.plugins = (window.$docsify.plugins || []).concat(function (hook) {
+        hook.doneEach(function () {
+          renderMermaidBlocks();
+        });
+      });
+
+      // Re-render already-visible diagrams with the new palette on toggle.
+      document.addEventListener('DOMContentLoaded', function () {
+        var btn = document.getElementById('theme-toggle');
+        if (btn) {
+          btn.addEventListener('click', function () {
+            setTimeout(rerenderExistingDiagrams, 0);
+          });
+        }
+      });
+    })();
+  </script>
+
   <script src="https://cdn.jsdelivr.net/npm/docsify@4"></script>
   <script src="https://cdn.jsdelivr.net/npm/docsify/lib/plugins/search.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/docsify-copy-code@2"></script>

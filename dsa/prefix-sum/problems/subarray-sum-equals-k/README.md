@@ -26,6 +26,17 @@ earlier prefix sums equal `P[j] - k` — a complement lookup identical in
 spirit to Two Sum, tracked with a running hash map instead of the whole
 array up front.
 
+## Visual Overview
+
+`nums = [1,2,3]`, `k = 3`:
+
+```mermaid
+flowchart LR
+    S0["seen={0:1}, sum=0"] -->|"v=1: sum=1\nseen[1-3=-2]=0"| S1["seen={0:1,1:1}"]
+    S1 -->|"v=2: sum=3\nseen[3-3=0]=1 → count=1"| S2["seen={0:1,1:1,3:1}"]
+    S2 -->|"v=3: sum=6\nseen[6-3=3]=1 → count=2"| Ret(["answer: 2\n([1,2] and [3])"])
+```
+
 ## How to Recognize This Pattern
 
 - "Number of subarrays with sum equal to K" is the canonical prefix-sum +

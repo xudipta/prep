@@ -32,6 +32,18 @@ ties (there's only one cycle, so there's exactly one such edge here, but
 the "process in order" framing generalizes correctly to the tie-breaking
 requirement).
 
+## Visual Overview
+
+`edges = [[1,2],[1,3],[2,3]]` — the third edge connects two nodes
+already in the same set:
+
+```mermaid
+flowchart LR
+    E1["[1,2]: different sets\nunion → {1,2}"] --> E2["[1,3]: different sets\nunion → {1,2,3}"]
+    E2 --> E3["[2,3]: same set already!"]
+    E3 --> Ret(["return [2, 3]"])
+```
+
 ## How to Recognize This Pattern
 
 - "Find the edge that creates a cycle" while building a graph

@@ -7,6 +7,29 @@ unweighted. See [`dsa/graphs`](../dsa/graphs/README.md) for the full set of
 algorithms (BFS, DFS, topological sort, shortest path, MST). This note
 covers representation choices only.
 
+## Visual Overview
+
+The same undirected graph as an adjacency list vs. an adjacency matrix:
+
+```mermaid
+graph LR
+    N0((0)) --- N1((1))
+    N0 --- N2((2))
+    N1 --- N2
+```
+
+```
+adjacency list                 adjacency matrix
+  0: [1, 2]                        0  1  2
+  1: [0, 2]                    0 [ 0, 1, 1 ]
+  2: [0, 1]                    1 [ 1, 0, 1 ]
+                                2 [ 1, 1, 0 ]
+```
+
+The list only stores real edges (O(V+E) space); the matrix reserves a
+cell for every possible pair regardless of whether an edge exists there
+(O(V²) space), trading memory for an O(1) "are u and v connected?" check.
+
 ## Representations & Complexity
 
 | Representation | Space | Edge check | Iterate neighbors |
