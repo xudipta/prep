@@ -27,6 +27,28 @@ other, which can never be satisfied. Kahn's algorithm detects this
 naturally: if it can't produce a full ordering (some nodes never reach
 in-degree 0), a cycle exists.
 
+## Visual Overview
+
+`numCourses=4`, `prerequisites=[[1,0],[2,0],[3,1],[3,2]]` — edges point
+prerequisite → dependent course; Kahn's algorithm peels off in-degree-0
+nodes layer by layer:
+
+```mermaid
+flowchart LR
+    C0((0)) --> C1((1))
+    C0 --> C2((2))
+    C1 --> C3((3))
+    C2 --> C3
+```
+
+```mermaid
+flowchart LR
+    Q1["queue: [0]\n(indegree 0)"] --> Q2["pop 0 → push 1, 2\nqueue: [1, 2]"]
+    Q2 --> Q3["pop 1 → 3's indegree 2→1\nqueue: [2]"]
+    Q3 --> Q4["pop 2 → 3's indegree 1→0, push 3\nqueue: [3]"]
+    Q4 --> Q5["pop 3 → processed=4\nall courses reachable → true"]
+```
+
 ## How to Recognize This Pattern
 
 - "Can all tasks be completed given dependency constraints" is the

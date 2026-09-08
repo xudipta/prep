@@ -26,6 +26,27 @@ with a sort) win.
   and moving the worse end can never hurt.
 - Merging two sorted structures.
 
+## Visual Overview
+
+The converging-pointers process, matching the template below step for step:
+
+```mermaid
+flowchart TD
+    Start(["lo = 0, hi = n-1"]) --> Check{"lo < hi ?"}
+    Check -- no --> Done(["done"])
+    Check -- yes --> Cond{"arr[lo], arr[hi]\nsatisfy the target\ncondition?"}
+    Cond -- yes --> Record["record / update answer"]
+    Record --> MoveBoth["lo++, hi--"]
+    MoveBoth --> Check
+    Cond -- "need larger value" --> MoveLo["lo++"]
+    MoveLo --> Check
+    Cond -- "need smaller value" --> MoveHi["hi--"]
+    MoveHi --> Check
+```
+
+Each iteration moves at least one pointer strictly inward, so the loop
+runs at most `n` times total — that's the source of the O(n) bound.
+
 ## Generic Template
 
 **Converging pointers** (opposite ends, move inward):

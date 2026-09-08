@@ -7,6 +7,17 @@ optionally the previous (doubly). Unlike arrays, elements aren't contiguous
 in memory, so there's no O(1) random access — but insertion/deletion at a
 known position is O(1) (no shifting required).
 
+## Visual Overview
+
+```mermaid
+graph LR
+    Head(("head")) --> N1["Val: 1"] --> N2["Val: 2"] --> N3["Val: 3"] --> Nil((nil))
+```
+
+Each node only knows its own value and a pointer to the next node — there
+is no O(1) way to jump to an arbitrary index, only to walk forward one
+node at a time from `head`.
+
 ## Operations & Complexity
 
 | Operation | Complexity | Notes |

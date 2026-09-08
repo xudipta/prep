@@ -26,6 +26,20 @@ extending the reachable frontier as far as possible at each step can never
 hurt: a farther reach is strictly at least as good for every future
 decision.
 
+## Visual Overview
+
+`nums = [3,2,1,0,4]` — a `0` at index 3 traps you before index 4 is ever
+reachable:
+
+```mermaid
+flowchart LR
+    I0["i=0: furthest=max(0,0+3)=3"] --> I1["i=1: furthest=max(3,1+2)=3"]
+    I1 --> I2["i=2: furthest=max(3,2+1)=3"]
+    I2 --> I3["i=3: furthest=max(3,3+0)=3"]
+    I3 --> I4["i=4: 4 > furthest(3) → unreachable"]
+    I4 --> Ret(["return false"])
+```
+
 ## How to Recognize This Pattern
 
 - "Can you reach the end, given a per-position maximum move" is a classic

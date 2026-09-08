@@ -19,6 +19,34 @@ recognizing the implicit graph, not memorizing algorithm names.
   are valid moves. Recognize these — they don't need an explicit adjacency
   structure, just a neighbor-generating function.
 
+## Visual Overview
+
+BFS explores level by level from a start node — the order the queue
+visits nodes in this example graph (`0` connects to `1,2`; `1` and `2`
+each connect to `3`):
+
+```mermaid
+flowchart TD
+    N0((0)) --> N1((1))
+    N0 --> N2((2))
+    N1 --> N3((3))
+    N2 --> N3
+```
+
+```mermaid
+sequenceDiagram
+    participant Q as queue
+    Note over Q: [0]  dist={0:0}
+    Note over Q: pop 0 → push 1, 2 → [1, 2]  dist={0:0,1:1,2:1}
+    Note over Q: pop 1 → push 3 → [2, 3]  dist={..,3:2}
+    Note over Q: pop 2 → 3 already visited → [3]
+    Note over Q: pop 3 → queue empty, done
+```
+
+Node `3` is reached first via whichever of `1`/`2` is dequeued first, at
+distance 2 — BFS guarantees that's the *shortest* number of edges from
+`0`, since it never explores a farther node before a nearer one.
+
 ## BFS (Breadth-First Search)
 
 **Intuition**: explore level by level using a queue. The first time you

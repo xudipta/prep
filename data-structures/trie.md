@@ -7,6 +7,27 @@ up to `alphabet size` children. Words sharing a prefix share the path down
 to where they diverge, making prefix-based queries fast and memory-sharing
 efficient.
 
+## Visual Overview
+
+After inserting `"cat"`, `"car"`, and `"dog"` (double circles mark a
+complete word — `isWord = true`):
+
+```mermaid
+graph TD
+    Root(("root")) --> C["c"]
+    C --> Ca["a"]
+    Ca --> Cat(("t"))
+    Ca --> Car(("r"))
+    Root --> D["d"]
+    D --> Do["o"]
+    Do --> Dog(("g"))
+```
+
+`"cat"` and `"car"` share the `c → a` path and only diverge at the third
+letter — that shared prefix is exactly what makes prefix queries (`
+StartsWith("ca")`) cheap: one walk down the tree, no scanning every
+stored word.
+
 ## Operations & Complexity
 
 | Operation | Complexity |

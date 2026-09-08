@@ -7,6 +7,27 @@ UTF-8 encoded). Iterating with `for range` yields runes (decoded Unicode
 code points) and their byte offsets, not individual bytes — an important
 distinction when a string contains multi-byte characters.
 
+## Visual Overview
+
+Byte iteration vs. rune iteration on a string containing a multi-byte
+character (`"héllo"` — `é` is 2 UTF-8 bytes):
+
+```mermaid
+flowchart LR
+    subgraph bytes ["s[i] — byte indices 0..5"]
+    direction LR
+    B0["h"] --- B1["0xC3"] --- B2["0xA9"] --- B3["l"] --- B4["l"] --- B5["o"]
+    end
+    subgraph runes ["for range s — rune (offset, value) pairs"]
+    direction LR
+    R0["(0,'h')"] --- R1["(1,'é')"] --- R2["(3,'l')"] --- R3["(4,'l')"] --- R4["(5,'o')"]
+    end
+```
+
+Indexing `s[i]` always gives a **byte**; `é` needs two of them (`0xC3
+0xA9` in UTF-8). `for range` decodes one full rune per step instead,
+which is why the rune loop has only 5 steps but skips from offset 1 to 3.
+
 ## Operations & Complexity
 
 | Operation | Complexity | Notes |

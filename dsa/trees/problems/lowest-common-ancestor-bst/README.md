@@ -27,6 +27,25 @@ current node's value, the LCA must be in the left subtree; if both are
 greater, it must be in the right subtree. The first node where they *don't*
 both go the same direction is exactly the split point — the LCA.
 
+## Visual Overview
+
+```mermaid
+graph TD
+    N6((6)) --> N2((2))
+    N6 --> N8((8))
+    N2 --> N0((0))
+    N2 --> N4((4))
+    N8 --> N7((7))
+    N8 --> N9((9))
+    N4 --> N3((3))
+    N4 --> N5((5))
+```
+
+`LCA(2, 8)`: at node `6`, `2 < 6` and `8 > 6` — they split, so `6` is
+the LCA. `LCA(0, 3)`: at node `6`, both `0 < 6` and `3 < 6` → descend
+left to `2`; at node `2`, `0 < 2` but `3 > 2` — they split, so `2` is
+the LCA.
+
 ## How to Recognize This Pattern
 
 - The problem explicitly states (or the input guarantees) a BST, not just

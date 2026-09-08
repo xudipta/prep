@@ -29,6 +29,20 @@ components) decreases the component count by exactly one. After
 processing every direct connection in the matrix, the running count is the
 answer.
 
+## Visual Overview
+
+```
+isConnected = [[1,1,0],
+               [1,1,0],
+               [0,0,1]]
+```
+
+```mermaid
+flowchart LR
+    Start["provinces=3 (3 cities)"] -->|"(0,1) connected: union(0,1)"| S1["provinces=2"]
+    S1 -->|"(0,2), (1,2): not connected"| Ret(["provinces=2\n{city0,city1} and {city2}"])
+```
+
 ## How to Recognize This Pattern
 
 - "Count groups of directly/indirectly connected items" is a direct

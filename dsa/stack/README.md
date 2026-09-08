@@ -29,6 +29,25 @@ nested-looking while loop inside the main loop.
   monotonic stack tracks bar indices whose heights form an increasing
   sequence, popping when a shorter bar is found.
 
+## Visual Overview
+
+**Monotonic stack** — how "next greater element" resolves each index in
+amortized O(1), matching the template below:
+
+```mermaid
+flowchart TD
+    Start(["stack = empty\ni = 0"]) --> More{"i < n ?"}
+    More -- no --> Done(["indices left on stack\nhave no next-greater element"])
+    More -- yes --> Top{"stack not empty AND\nnums[stack.top] < nums[i] ?"}
+    Top -- yes --> Pop["pop top\nresult[top] = nums[i]"]
+    Pop --> Top
+    Top -- no --> Push["push i"] --> Advance["i++"] --> More
+```
+
+Every index is pushed exactly once and popped at most once across the
+*entire* run — that bounded total work is what makes the algorithm O(n)
+despite the loop nested inside a loop.
+
 ## Generic Template
 
 **Matching (plain stack)**:

@@ -33,6 +33,27 @@ the same "negative" diagonal (`/`) shares `row + col`. Tracking occupied
 values of `row-col` and `row+col` in two sets covers all diagonal
 conflicts in O(1) per check.
 
+## Visual Overview
+
+One of the two `n=4` solutions (`.Q..` / `...Q` / `Q...` / `..Q.`) — one
+queen per row, no shared column or diagonal:
+
+```mermaid
+graph TD
+    subgraph "row 0"
+    A0["."] --- A1["Q"] --- A2["."] --- A3["."]
+    end
+    subgraph "row 1"
+    B0["."] --- B1["."] --- B2["."] --- B3["Q"]
+    end
+    subgraph "row 2"
+    C0["Q"] --- C1["."] --- C2["."] --- C3["."]
+    end
+    subgraph "row 3"
+    D0["."] --- D1["."] --- D2["Q"] --- D3["."]
+    end
+```
+
 ## How to Recognize This Pattern
 
 - "Place items on a grid/board such that no two conflict" with row/column/

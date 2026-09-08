@@ -28,6 +28,18 @@ the day difference, and repeat until the stack's top is no longer colder
 than today (or the stack is empty). Each index is pushed once and popped
 at most once, giving O(n) total work.
 
+## Visual Overview
+
+`temperatures = [73,74,75,71,69,72,76,73]` — day 6 (76°) resolves three
+stacked days at once:
+
+```mermaid
+flowchart LR
+    Push["stack (indices): [2,3,4]\ntemps: 75,71,69"] -->|"day5=72: pops 4,3\nanswer[4]=1, answer[3]=2"| S1["stack: [2,5]"]
+    S1 -->|"day6=76: pops 5,2\nanswer[5]=1, answer[2]=4"| S2["stack: [6]"]
+    S2 --> Ret(["answer: [1,1,4,2,1,1,0,0]"])
+```
+
 ## How to Recognize This Pattern
 
 - "Days until a warmer/colder value" is the canonical "next greater

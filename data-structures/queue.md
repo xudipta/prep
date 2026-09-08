@@ -6,6 +6,22 @@
 supports push/pop at both ends. A deque generalizes both a stack and a
 queue.
 
+## Visual Overview
+
+```mermaid
+flowchart LR
+    Enqueue["Enqueue(x)"] -.->|"adds here"| Back
+    subgraph Queue ["queue"]
+    direction LR
+    Front["front: 3"] --- M["8"] --- Back["back: 5"]
+    end
+    Front -.->|"removes from here"| Dequeue["Dequeue()"]
+```
+
+FIFO: `3` (enqueued first) is also dequeued first — the opposite
+discipline from a stack, which is exactly why BFS (process the oldest
+discovered node first) uses a queue and DFS uses a stack.
+
 ## Operations & Complexity
 
 | Operation | Complexity |

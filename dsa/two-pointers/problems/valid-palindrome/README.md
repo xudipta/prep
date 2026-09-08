@@ -25,6 +25,19 @@ You don't need to build a cleaned copy of the string first. Walk two pointers
 inward from both ends, skipping non-alphanumeric characters as you go, and
 compare characters directly.
 
+## Visual Overview
+
+`s = "A man, a plan, a canal: Panama"` — `lo` and `hi` converge inward,
+skipping punctuation/spaces, comparing letters case-insensitively:
+
+```mermaid
+flowchart LR
+    lo(["lo → skips to 'A'"]) -.-> S["A man, a plan, a canal: Panama"]
+    hi(["hi ← skips to 'a' (last)"]) -.-> S
+    S --> Cmp["'A' vs 'a' (case-insensitive): match"]
+    Cmp --> Continue["lo++, hi--, repeat until lo >= hi"]
+```
+
 ## How to Recognize This Pattern
 
 - The question is about symmetry (palindrome, mirroring) — compare the

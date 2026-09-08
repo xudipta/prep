@@ -6,6 +6,31 @@ For how these concepts differ across C++, Java, and Go specifically
 inheritance, constructors/destructors, operator overloading), see
 [`language-specific-notes.md`](language-specific-notes.md).
 
+## Visual Overview
+
+Structural polymorphism via interfaces (the `Shape` example used
+throughout this page) — neither `Circle` nor `Square` declares
+`implements Shape` anywhere; each satisfies it purely by having an
+`Area()` method:
+
+```mermaid
+classDiagram
+    class Shape {
+        <<interface>>
+        +Area() float64
+    }
+    class Circle {
+        +R float64
+        +Area() float64
+    }
+    class Square {
+        +Side float64
+        +Area() float64
+    }
+    Shape <|.. Circle
+    Shape <|.. Square
+```
+
 ## Class and Object
 
 **Question:** What's the difference between a class and an object?

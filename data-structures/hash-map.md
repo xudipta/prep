@@ -6,6 +6,28 @@ A hash map stores key-value pairs with average O(1) lookup, insert, and
 delete via a hash function. A hash set is a hash map with no meaningful
 value (just membership). Go's built-in `map[K]V` implements this directly.
 
+## Visual Overview
+
+```mermaid
+flowchart LR
+    K1["key: \"a\""] -->|hash| H1["bucket 2"]
+    K2["key: \"b\""] -->|hash| H2["bucket 0"]
+    K3["key: \"c\""] -->|hash| H1
+    subgraph buckets ["buckets (array)"]
+    direction TB
+    Bk0["bucket 0: [(\"b\", 2)]"]
+    Bk1["bucket 1: [ ]"]
+    Bk2["bucket 2: [(\"a\", 1), (\"c\", 3)]"]
+    end
+    H1 -.-> Bk2
+    H2 -.-> Bk0
+```
+
+A hash function maps each key to a bucket in O(1). Different keys can
+collide into the same bucket (`"a"` and `"c"` above) — the bucket then
+holds a short list checked in O(1) *average* time, since a good hash
+function keeps collisions rare.
+
 ## Operations & Complexity
 
 | Operation | Average | Worst Case |

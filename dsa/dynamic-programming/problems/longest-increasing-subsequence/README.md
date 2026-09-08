@@ -35,6 +35,22 @@ always sorted (a non-obvious but provable invariant).
 - If asked for O(n log n), that's a strong hint toward the patience-sorting
   + binary search technique rather than the more intuitive O(n²) DP.
 
+## Visual Overview
+
+`nums = [10,9,2,5,3,7,101,18]` — how `tails` evolves (patience sorting):
+
+```mermaid
+flowchart LR
+    T1["after 10: [10]"] --> T2["after 9: [9]"]
+    T2 --> T3["after 2: [2]"]
+    T3 --> T4["after 5: [2,5]"]
+    T4 --> T5["after 3: [2,3]"]
+    T5 --> T6["after 7: [2,3,7]"]
+    T6 --> T7["after 101: [2,3,7,101]"]
+    T7 --> T8["after 18: [2,3,7,18]"]
+    T8 --> Ret(["len(tails) = 4"])
+```
+
 ## Deriving the Recurrence (O(n²) DP)
 
 1. **Decision**: for each index `i`, which earlier index (if any) does the

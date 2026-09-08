@@ -25,6 +25,30 @@ front node is smaller and append it to the result — exactly the merge step
 of merge sort, adapted to linked lists (which, unlike arrays, let you
 splice nodes in O(1) instead of copying).
 
+## Visual Overview
+
+`l1 = 1->2->4`, `l2 = 1->3->4` → merged `1->1->2->3->4->4`:
+
+```mermaid
+flowchart LR
+    subgraph l1 ["l1"]
+    direction LR
+    A1["1"] --> A2["2"] --> A3["4"]
+    end
+    subgraph l2 ["l2"]
+    direction LR
+    B1["1"] --> B2["3"] --> B3["4"]
+    end
+    subgraph merged ["merged"]
+    direction LR
+    M1["1"] --> M2["1"] --> M3["2"] --> M4["3"] --> M5["4"] --> M6["4"]
+    end
+```
+
+At each step, whichever list's front node is smaller (ties go to `l1`)
+gets spliced onto the result; once one list runs out, the other's
+already-sorted remainder is spliced on directly.
+
 ## How to Recognize This Pattern
 
 - "Merge two/several **sorted** structures" is the canonical signal for a

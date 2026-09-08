@@ -8,6 +8,25 @@ graphs, so BFS/DFS both apply directly, but the acyclic, rooted structure
 lets you skip visited-tracking entirely (you never revisit a node by
 walking parent→child links, so no cycles to worry about).
 
+## Visual Overview
+
+The same small tree, visited in each of the four orders described below:
+
+```mermaid
+graph TD
+    A((3)) --> B((9))
+    A --> C((20))
+    C --> D((15))
+    C --> E((7))
+```
+
+| Traversal | Visit order | Rule |
+|---|---|---|
+| Preorder | 3, 9, 20, 15, 7 | node, then left, then right |
+| Inorder | 9, 3, 15, 20, 7 | left, then node, then right (sorted order on a BST) |
+| Postorder | 9, 15, 7, 20, 3 | left, then right, then node |
+| Level order | 3, 9, 20, 15, 7 | BFS, one level at a time |
+
 ## Traversal Templates
 
 **DFS — Preorder (node, left, right)**: used when you need to process a

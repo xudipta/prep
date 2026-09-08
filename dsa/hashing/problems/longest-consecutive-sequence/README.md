@@ -26,6 +26,22 @@ runs from their start, every number is visited by the inner `while` loop at
 most once across the *entire* algorithm — even though there's a loop inside
 a loop, the total work is O(n), not O(n²).
 
+## Visual Overview
+
+`nums = [100,4,200,1,3,2]` — only `1` is a sequence head (`0` isn't in
+the set), so only it triggers a forward scan; `4` is skipped because `3`
+is present:
+
+```mermaid
+flowchart LR
+    N1(["1 (head: 0 not in set)"]) -->|"scan forward"| N2["2 ✓"] --> N3["3 ✓"] --> N4["4 ✓"] --> N5["5? not in set — stop"]
+    N4x["4 (3 is in set → not a head, skip)"]
+    N100(["100 (head: 99 not in set)"]) -->|"scan forward"| N101["101? not in set — stop"]
+```
+
+Run length 4 (`1,2,3,4`) beats the length-1 run from `100` — final
+answer `4`.
+
 ## How to Recognize This Pattern
 
 - "Longest run/streak of consecutive values" with an O(n) requirement,

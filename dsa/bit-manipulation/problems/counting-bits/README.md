@@ -27,6 +27,19 @@ terms of a bit trick, letting every value from `0` to `n` be computed in
 O(1) additional work each, for O(n) total instead of O(n log n) (which
 you'd get by counting bits of each number independently, bit by bit).
 
+## Visual Overview
+
+`n = 5` — each `answer[i]` reuses an already-computed smaller entry:
+
+```mermaid
+flowchart LR
+    A0["answer[0]=0"] --> A1["answer[1]=answer[1&0]+1=answer[0]+1=1"]
+    A0 --> A2["answer[2]=answer[2&1]+1=answer[0]+1=1"]
+    A2 --> A3["answer[3]=answer[3&2]+1=answer[2]+1=2"]
+    A0 --> A4["answer[4]=answer[4&3]+1=answer[0]+1=1"]
+    A4 --> A5["answer[5]=answer[5&4]+1=answer[4]+1=2"]
+```
+
 ## How to Recognize This Pattern
 
 - "Compute a per-number property for every number up to n" is a strong

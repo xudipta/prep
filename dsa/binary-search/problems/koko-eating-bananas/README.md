@@ -28,6 +28,19 @@ at speed `k`?" This is monotonic: if speed `k` is feasible, any speed `> k`
 is also feasible (eating faster never takes more hours). That monotonicity
 is exactly what lets you binary search directly on `k`.
 
+## Visual Overview
+
+`piles = [3,6,7,11]`, `h = 8` — binary searching the **speed** `k`, not
+the array, using `hoursNeeded(k) <= h` as the feasibility check:
+
+```mermaid
+flowchart LR
+    S1["lo=1,hi=11,mid=6\nhours=1+1+2+2=6 ≤ 8\nfeasible → hi=6"] --> S2["lo=1,hi=6,mid=3\nhours=1+2+3+4=10 > 8\ntoo slow → lo=4"]
+    S2 --> S3["lo=4,hi=6,mid=5\nhours=1+2+2+3=8 ≤ 8\nfeasible → hi=5"]
+    S3 --> S4["lo=4,hi=5,mid=4\nhours=1+2+2+3=8 ≤ 8\nfeasible → hi=4"]
+    S4 --> Ret(["lo == hi == 4: return 4"])
+```
+
 ## How to Recognize This Pattern
 
 - "Find the minimum/maximum X such that [condition]" where X isn't an array

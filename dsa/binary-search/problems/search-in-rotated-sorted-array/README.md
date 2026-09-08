@@ -27,6 +27,19 @@ exists). Check which half is sorted by comparing `nums[lo]` to `nums[mid]`,
 then decide whether the target lies within that sorted half's value range —
 if not, it must be in the other half.
 
+## Visual Overview
+
+`nums = [4,5,6,7,0,1,2]`, `target = 0` — at each step, one half is
+always properly sorted; check whether the target's value falls in that
+half's range:
+
+```mermaid
+flowchart LR
+    S1["lo=0,hi=6,mid=3 (nums[3]=7)\nleft half [4,5,6,7] sorted\n0 not in [4,7) → search right"] -->|"lo=4"| S2["lo=4,hi=6,mid=5 (nums[5]=1)\nleft half [0,1] sorted\n0 in [0,1) → search left"]
+    S2 -->|"hi=4"| S3["lo=4,hi=4,mid=4 (nums[4]=0)\nmatch!"]
+    S3 --> Ret(["return 4"])
+```
+
 ## How to Recognize This Pattern
 
 - "Sorted array, but rotated/shifted" is a strong signal: classic binary

@@ -13,6 +13,20 @@ switch, but shared memory means threads must coordinate to avoid races.
 thread doesn't require setting up a new page table / address space — only a
 new stack and register state.
 
+## Visual Overview
+
+```mermaid
+stateDiagram-v2
+    [*] --> New
+    New --> Ready : admitted
+    Ready --> Running : scheduler dispatch
+    Running --> Ready : time slice expired\n(preempted)
+    Running --> Waiting : I/O or event wait
+    Waiting --> Ready : I/O or event complete
+    Running --> Terminated : exit
+    Terminated --> [*]
+```
+
 ## Process States
 
 Typical states: **New** → **Ready** (waiting for CPU) → **Running** (on
@@ -49,6 +63,16 @@ semaphore, semantically, though implementations differ — a mutex typically
 also tracks ownership).
 
 ## Deadlock
+
+The circular-wait condition, visualized — each process holds one
+resource while waiting for the next process's resource, all the way
+around:
+
+```mermaid
+flowchart LR
+    P1["Process A\n(holds R1)"] -->|"waits for R2"| P2["Process B\n(holds R2)"]
+    P2 -->|"waits for R1"| P1
+```
 
 Four necessary conditions (Coffman conditions), all must hold
 simultaneously for deadlock to be possible:

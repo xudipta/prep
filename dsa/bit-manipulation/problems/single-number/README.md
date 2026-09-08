@@ -25,6 +25,20 @@ XOR is commutative, associative, and self-canceling: `x ^ x = 0` and
 pair of duplicates (in any order, since XOR is commutative/associative),
 leaving only the single unpaired element.
 
+## Visual Overview
+
+`nums = [4,1,2,1,2]` — XOR-ing left to right, in the exact array order:
+
+```mermaid
+flowchart LR
+    R0["result=0"] -->|"^4"| R1["result=4"]
+    R1 -->|"^1"| R2["result=5"]
+    R2 -->|"^2"| R3["result=7"]
+    R3 -->|"^1"| R4["result=6"]
+    R4 -->|"^2"| R5["result=4"]
+    R5 --> Ret(["answer: 4"])
+```
+
 ## How to Recognize This Pattern
 
 - "Every element appears twice except one" combined with an explicit O(1)

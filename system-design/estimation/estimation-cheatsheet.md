@@ -23,6 +23,15 @@ demonstrating you can reason about scale.
 (Exact values drift with hardware generation — the point is the *relative*
 order of magnitude: memory ≪ SSD ≪ network, each roughly 100-1000x apart.)
 
+## Visual Overview
+
+```mermaid
+flowchart LR
+    A["Total requests/day"] -->|"÷ 86,400"| B["Average QPS"]
+    B -->|"× peak factor (2-5x)"| C["Peak QPS"]
+    C -->|"÷ per-server capacity"| D["Number of servers needed"]
+```
+
 ## Requests Per Second (QPS)
 
 ```

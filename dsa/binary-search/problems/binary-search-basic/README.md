@@ -23,6 +23,16 @@ Because the array is sorted, comparing the target to the middle element
 tells you which half can be discarded entirely — you never need to look at
 the discarded half.
 
+## Visual Overview
+
+`nums = [-1,0,3,5,9,12]`, `target = 9`:
+
+```mermaid
+flowchart LR
+    S1["lo=0,hi=5\nmid=2 → nums[2]=3\n3 < 9"] -->|"lo = 3"| S2["lo=3,hi=5\nmid=4 → nums[4]=9\nmatch!"]
+    S2 --> Ret(["return 4"])
+```
+
 ## How to Recognize This Pattern
 
 - Sorted array + "find a value" is the canonical binary search signal.

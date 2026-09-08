@@ -108,3 +108,9 @@ planned but not yet written — see the repo's contribution guide in the root
 - [x] `REFERENCES.md`
 - [x] `templates/problem-template.md`
 - [x] GitHub Pages (docsify) publishing
+- [x] Mermaid diagrams for every technique, data structure, CS/system-design
+  concept, and problem (87 diagrams across 72 files), rendered on the
+  Pages site via a small custom docsify plugin (docsify has no built-in
+  mermaid support) and natively by GitHub's own markdown viewer
+- [x] Themed docsify site: custom light/dark palette with a toggle button,
+  Google Fonts (Inter/JetBrains Mono), styled tables and code blocks

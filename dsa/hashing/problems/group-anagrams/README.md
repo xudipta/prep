@@ -24,6 +24,20 @@ sorted character sequence (or the same per-character count signature).
 Using that sorted string (or count signature) as a hash map key groups all
 anagrams together in a single pass.
 
+## Visual Overview
+
+```mermaid
+flowchart LR
+    Eat["\"eat\""] -->|"key: \"aet\""| G1
+    Tea["\"tea\""] -->|"key: \"aet\""| G1
+    Ate["\"ate\""] -->|"key: \"aet\""| G1
+    G1(["group: eat, tea, ate"])
+    Tan["\"tan\""] -->|"key: \"ant\""| G2
+    Nat["\"nat\""] -->|"key: \"ant\""| G2
+    G2(["group: tan, nat"])
+    Bat["\"bat\""] -->|"key: \"abt\""| G3(["group: bat"])
+```
+
 ## How to Recognize This Pattern
 
 - "Group items that are equivalent under some transformation" — the

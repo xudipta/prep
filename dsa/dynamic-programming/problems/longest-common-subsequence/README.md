@@ -36,6 +36,31 @@ current character of text1" or "drop the current character of text2."
   that's a related but different recurrence (resets to 0 on a mismatch
   instead of taking a max).
 
+## Visual Overview
+
+`text1 = "abcde"`, `text2 = "ace"` — the matched characters, in order:
+
+```mermaid
+flowchart LR
+    A1["a"] === A2["a"]
+    B1["b"]
+    C1["c"] === C2["c"]
+    D1["d"]
+    E1["e"] === E2["e"]
+    subgraph text1["text1: a b c d e"]
+    direction LR
+    A1 --- B1 --- C1 --- D1 --- E1
+    end
+    subgraph text2["text2: a c e"]
+    direction LR
+    A2 --- C2 --- E2
+    end
+```
+
+`a`, `c`, `e` appear in the same relative order in both strings (`b` and
+`d` are simply skipped) — that shared, order-preserving subsequence has
+length 3, the answer.
+
 ## Deriving the Recurrence
 
 1. **Decision**: for positions `i` in `text1` and `j` in `text2`, do the

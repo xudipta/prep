@@ -9,6 +9,31 @@ containing `x` and `y`). With two optimizations — **path compression** and
 (technically O(α(n)), the inverse Ackermann function, which is ≤ 4 for any
 practical `n`).
 
+## Visual Overview
+
+```mermaid
+flowchart TD
+    subgraph before ["Find(x) — before path compression"]
+    direction TD
+    R1((root)) --> M1((y)) --> X1((x))
+    end
+    subgraph after ["after Find(x) — path compressed"]
+    direction TD
+    R2((root)) --> M2((y))
+    R2 --> X2((x))
+    end
+```
+
+```mermaid
+flowchart LR
+    A((set A: 1,2,3)) -->|Union| C(("merged set: 1,2,3,4,5"))
+    B((set B: 4,5)) -->|Union| C
+```
+
+Path compression (top) flattens every node visited during a `Find` so it
+points straight at the root — future `Find` calls on those same nodes
+become O(1). `Union` (bottom) attaches one set's root under the other's.
+
 ## Operations & Complexity
 
 | Operation | Complexity (with both optimizations) |

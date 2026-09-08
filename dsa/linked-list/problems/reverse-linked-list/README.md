@@ -25,6 +25,24 @@ node (`prev`) and carefully saving the next node *before* overwriting the
 current node's pointer is enough to reverse the whole list in one pass
 with no extra memory.
 
+## Visual Overview
+
+`1 -> 2 -> 3 -> nil` becomes `3 -> 2 -> 1 -> nil`, one link rewired per
+step:
+
+```mermaid
+flowchart LR
+    subgraph before ["before"]
+    direction LR
+    B1["1"] --> B2["2"] --> B3["3"] --> BN((nil))
+    end
+    subgraph after ["after"]
+    direction LR
+    A3["3"] --> A2["2"] --> A1["1"] --> AN((nil))
+    end
+    before -.->|"reverse"| after
+```
+
 ## How to Recognize This Pattern
 
 - "Reverse a linked list" is the canonical iterative pointer-reversal

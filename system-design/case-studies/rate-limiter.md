@@ -24,6 +24,28 @@
   (approximately) global, not per-server, or clients could bypass it by
   spreading requests across servers.
 
+## Visual Overview
+
+```mermaid
+flowchart LR
+    Client --> LB["Load Balancer"]
+    LB --> App["App Servers\n(rate-limit middleware)"]
+    App --> Store[("Shared Store\n(Redis)")]
+    App --> Backend["Backend"]
+```
+
+Token bucket, the recommended default — tokens refill at a fixed rate,
+each request consumes one, requests are rejected when the bucket is
+empty:
+
+```mermaid
+flowchart TD
+    Req["Request arrives"] --> Refill["Refill tokens based on\ntime elapsed since last check\n(capped at bucket capacity)"]
+    Refill --> HasToken{"tokens > 0 ?"}
+    HasToken -- yes --> Consume["tokens--\nallow request"]
+    HasToken -- no --> Reject["reject: 429"]
+```
+
 ## Capacity Estimation
 
 Assume 10,000 requests/sec across the fleet needing a rate-limit check,

@@ -23,6 +23,17 @@ Consecutive windows of size `k` overlap in `k-1` elements. Instead of
 resumming each window from scratch, slide the window by adding the new
 right-most element and subtracting the element that fell off the left.
 
+## Visual Overview
+
+`nums = [2,1,5,1,3,2]`, `k=3` — sliding from `[2,1,5]` (sum 8) to
+`[1,5,1]` by dropping the leftmost and adding the new rightmost element:
+
+```mermaid
+flowchart LR
+    W1["window: [2,1,5] sum=8"] -->|"+= nums[3]=1, -= nums[0]=2"| W2["window: [1,5,1] sum=7"]
+    W2 -->|"+= nums[4]=3, -= nums[1]=1"| W3["window: [5,1,3] sum=9 (best)"]
+```
+
 ## How to Recognize This Pattern
 
 - "Subarray of size exactly K" is the canonical fixed-window signal.

@@ -32,6 +32,20 @@ from `n-2`. Every way to reach `n` is therefore "a way to reach `n-1`" plus
   directly, once via `climb(n-1)` calling it again) — that overlap is the
   DP tell.
 
+## Visual Overview
+
+```mermaid
+flowchart LR
+    D0["dp[0]=1"] --> D2["dp[2]=dp[1]+dp[0]=2"]
+    D1["dp[1]=1"] --> D2
+    D1 --> D3["dp[3]=dp[2]+dp[1]=3"]
+    D2 --> D3
+    D2 --> D4["dp[4]=dp[3]+dp[2]=5"]
+    D3 --> D4
+    D3 --> D5["dp[5]=dp[4]+dp[3]=8"]
+    D4 --> D5
+```
+
 ## Deriving the Recurrence
 
 1. **Decision**: at the final step to reach `n`, did the last move cover 1

@@ -24,6 +24,21 @@ excluded. Walking through the array once and, at each element, branching
 into "include it" and "exclude it" recursive calls generates every one of
 the `2ⁿ` subsets exactly once.
 
+## Visual Overview
+
+`nums = [1, 2]` — the full include/exclude decision tree (see
+`dsa/backtracking/README.md` for the same diagram in the general case):
+
+```mermaid
+flowchart TD
+    Root(["[]"]) -->|include 1| L1(["[1]"])
+    Root -->|exclude 1| R1(["[]"])
+    L1 -->|include 2| L2(["[1,2]"])
+    L1 -->|exclude 2| R2(["[1]"])
+    R1 -->|include 2| L3(["[2]"])
+    R1 -->|exclude 2| R3(["[]"])
+```
+
 ## How to Recognize This Pattern
 
 - "Return all subsets/the power set" is the direct include/exclude

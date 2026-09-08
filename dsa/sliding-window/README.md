@@ -24,6 +24,26 @@ of restarting — turning an O(n²) or O(n·k) brute force into O(n).
 - A brute force would recompute a per-subarray value that only changes
   incrementally when the window's edges move.
 
+## Visual Overview
+
+**Variable window** (matches the "grow to explore, shrink to restore" template below):
+
+```mermaid
+flowchart TD
+    Start(["left = 0, right = 0"]) --> Grow["add arr[right] to window state\nright++"]
+    Grow --> Valid{"window still\nvalid?"}
+    Valid -- yes --> Update["update answer using\ncurrent window [left, right)"]
+    Update --> More{"right < n ?"}
+    Valid -- no --> Shrink["remove arr[left] from window state\nleft++"]
+    Shrink --> Valid
+    More -- yes --> Grow
+    More -- no --> Done(["done"])
+```
+
+`right` only ever moves forward, and `left` only ever moves forward too —
+each index enters and leaves the window at most once, which is exactly
+why the total work is O(n) despite the nested-looking shrink loop.
+
 ## Generic Template
 
 **Fixed-size window** (size `k` given):

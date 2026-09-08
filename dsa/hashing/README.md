@@ -23,6 +23,23 @@ O(n)? This is almost always how an O(n²) brute force becomes O(n).
 - You need O(1) existence checks while iterating once (e.g., "does this
   value already exist in the set / has this state been visited before").
 
+## Visual Overview
+
+The complement-lookup pattern (Two Sum-style), matching the template below:
+
+```mermaid
+flowchart TD
+    Start(["seen = empty map\ni = 0"]) --> Check{"target - arr[i]\nin seen?"}
+    Check -- yes --> Found(["return the pair\n(seen[complement], i)"])
+    Check -- no --> Insert["seen[arr[i]] = i"]
+    Insert --> Next{"more elements?"}
+    Next -- yes --> Advance["i++"] --> Check
+    Next -- no --> NotFound(["no pair found"])
+```
+
+The complement is checked **before** the current value is inserted, which
+is exactly what stops an element from pairing with itself.
+
 ## Generic Template
 
 **Complement lookup** (Two Sum-style):

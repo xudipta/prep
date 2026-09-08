@@ -25,6 +25,24 @@
   staleness on "online" indicators is an acceptable trade-off), but message
   content/ordering within a conversation should not be lost or reordered.
 
+## Visual Overview
+
+```mermaid
+flowchart LR
+    Sender["Sender (WebSocket)"] --> GW1["Connection Gateway A"]
+    GW1 --> MsgSvc["Message Service"]
+    MsgSvc --> Store[("Message Store\nsharded by conversation_id")]
+    MsgSvc --> PubSub["Pub/Sub"]
+    PubSub --> GW2["Connection Gateway B"]
+    GW2 --> Recipient["Recipient (WebSocket)"]
+    PubSub -.->|"recipient offline"| Push["Push Notification"]
+```
+
+The sender and recipient can be connected to **different** gateway
+instances — that's exactly why pub/sub fan-out sits between the message
+service and every gateway, instead of the gateway talking directly to
+other gateways.
+
 ## Capacity Estimation
 
 Assume 50 million daily active users, each sending an average of 40

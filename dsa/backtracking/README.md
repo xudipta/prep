@@ -27,6 +27,26 @@ any mutation before trying the next choice.
   pruned before being fully built) — this is what makes backtracking faster
   than brute-force enumeration.
 
+## Visual Overview
+
+The include/exclude decision tree for `Subsets([1, 2])` — every root-to-leaf
+path is one subset, and "undo" is just returning up the tree to try the
+sibling branch:
+
+```mermaid
+flowchart TD
+    Root(["[ ]"]) -->|"include 1"| L1(["[1]"])
+    Root -->|"exclude 1"| R1(["[ ]"])
+    L1 -->|"include 2"| L2(["[1,2]"])
+    L1 -->|"exclude 2"| R2(["[1]"])
+    R1 -->|"include 2"| L3(["[2]"])
+    R1 -->|"exclude 2"| R3(["[ ]"])
+```
+
+Four leaves, four subsets — `2ⁿ` total for `n` elements. The "undo" step
+in the template is what lets the same `path` variable be reused across
+every branch instead of copying it.
+
 ## Generic Template
 
 ```go

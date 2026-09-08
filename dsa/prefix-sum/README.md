@@ -22,6 +22,23 @@ P[j+1] - K` — a complement lookup, exactly like `dsa/hashing`.
 - "Number of subarrays with sum/product/XOR equal to K."
 - "Equilibrium index" / "find a split point where both sides are equal."
 
+## Visual Overview
+
+How a range sum collapses to a subtraction of two prefix sums:
+
+```mermaid
+flowchart LR
+    subgraph P["prefix array (prefix[i] = sum of arr[0..i-1])"]
+    direction LR
+    P0["prefix[0]=0"] --- P1["prefix[1]"] --- P2["..."] --- Pi["prefix[i]"] --- P3["..."] --- Pj["prefix[j+1]"]
+    end
+    Pi -. "subtract" .-> R["sum(arr[i..j]) = prefix[j+1] - prefix[i]"]
+    Pj -. "from" .-> R
+```
+
+Building `prefix` once is O(n); after that, every range-sum query — no
+matter how many you ask — is a single O(1) subtraction.
+
 ## Generic Template
 
 **Static range-sum queries**:

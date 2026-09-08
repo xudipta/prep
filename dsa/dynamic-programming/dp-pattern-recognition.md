@@ -4,6 +4,22 @@ Use this before writing any code: read the problem's shape, follow it to a
 candidate pattern, then confirm by deriving the recurrence (see the DP
 `README.md` for the derivation steps).
 
+## Visual Overview
+
+```mermaid
+flowchart TD
+    Q1{"Overlapping\nsubproblems?"} -- no --> NotDP(["Divide & Conquer\nor plain recursion"])
+    Q1 -- yes --> Q2{"State shape?"}
+    Q2 -- "dp[i], few lookback steps" --> S1["1D DP\n(Climbing Stairs, House Robber)"]
+    Q2 -- "dp[i][capacity]" --> S2["Knapsack\n(0/1 Knapsack)"]
+    Q2 -- "dp[i][j], two sequences" --> S3["String DP / LCS-family"]
+    Q2 -- "dp[i], longest ordered run" --> S4["LIS-family\n(+ Binary Search for O(n log n))"]
+    Q2 -- "dp[i][j], a contiguous range" --> S5["Interval DP"]
+    Q2 -- "dp[node]" --> S6["Tree DP"]
+    Q2 -- "dp[mask]" --> S7["Bitmask DP"]
+    Q2 -- "dp[i][state]" --> S8["State Machine DP"]
+```
+
 ## Step 1 — Confirm it's actually DP
 
 Ask: if I wrote the brute-force recursion, would the same subproblem

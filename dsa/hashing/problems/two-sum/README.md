@@ -24,6 +24,17 @@ For each number `v`, the only thing that matters is whether its complement
 `target - v` has already been seen. A hash map from value to index lets you
 check that in O(1), so a single pass suffices.
 
+## Visual Overview
+
+`nums = [2,7,11,15]`, `target = 9`:
+
+```mermaid
+flowchart LR
+    S1["i=0, v=2\ncomplement=7\nnot in seen {}"] --> Ins1["seen = {2:0}"]
+    Ins1 --> S2["i=1, v=7\ncomplement=2\nseen[2] = 0 ✓"]
+    S2 --> Ret(["return [0, 1]"])
+```
+
 ## How to Recognize This Pattern
 
 - "Find a pair such that a + b == target" is the canonical complement-lookup

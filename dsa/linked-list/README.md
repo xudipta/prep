@@ -28,6 +28,32 @@ to the rest of the list.
   insert before the head) — a strong **dummy head** signal, so the real
   head doesn't need special-case handling.
 
+## Visual Overview
+
+**In-place reversal** — the three-pointer dance, matching the template
+below. Each step rewires exactly one `.Next` link:
+
+```mermaid
+flowchart LR
+    subgraph before ["before: prev=nil"]
+    direction LR
+    N1["1"] --> N2["2"] --> N3["3"] --> Nil1((nil))
+    end
+```
+
+```mermaid
+sequenceDiagram
+    participant prev
+    participant curr
+    participant next
+    Note over prev,next: next := curr.Next  (save it first!)
+    Note over prev,next: curr.Next = prev  (reverse the link)
+    Note over prev,next: prev = curr; curr = next  (advance both)
+```
+
+Saving `next` *before* overwriting `curr.Next` is the one step that
+matters — skip it and the rest of the list becomes unreachable.
+
 ## Generic Templates
 
 **Reverse (iterative)**:

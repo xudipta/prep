@@ -28,6 +28,34 @@ always faster and simpler than repeated BFS/DFS.
 - Kruskal's MST algorithm uses Union-Find directly to skip edges that
   would form a cycle.
 
+## Visual Overview
+
+Path compression: after `Find(x)`, every node on the path points directly
+to the root, so the *next* `Find` on any of them is O(1):
+
+```mermaid
+flowchart TD
+    subgraph before ["before Find(x)"]
+    direction TD
+    R1((root)) --> B1(("...")) --> C1((y)) --> X1((x))
+    end
+    subgraph after ["after Find(x): path compressed"]
+    direction TD
+    R2((root))
+    R2 --> C2((y))
+    R2 --> X2((x))
+    end
+```
+
+```mermaid
+flowchart LR
+    Start(["Union(a, b)"]) --> FA["rootA = Find(a)\nrootB = Find(b)"]
+    FA --> Same{"rootA == rootB?"}
+    Same -- yes --> Cycle(["already connected —\nthis edge creates a cycle"])
+    Same -- no --> Attach["attach smaller-rank root\nunder the larger-rank root"]
+    Attach --> Merged(["merged into one set"])
+```
+
 ## Generic Template
 
 See the full implementation in `data-structures/disjoint-set-union.md`.
