@@ -1,5 +1,7 @@
 # Interview Prep — DSA, Systems, and CS Fundamentals
 
+**📖 Browse as a website: https://xudipta.github.io/prep/**
+
 A structured, pattern-first repository for preparing for technical interviews and
 competitive programming. Solutions are in Go.
 
@@ -174,11 +176,17 @@ go test ./dsa/two-pointers/problems/three-sum/...
 
 ## Browsing as a website
 
-This repository is also published as a browsable site via GitHub Pages
-(docsify, no build step — see `.github/workflows/pages.yml`). If Pages isn't
-yet enabled for this repo: **Settings → Pages → Build and deployment → Source:
-GitHub Actions**. Once enabled, the workflow publishes on every push to
+This repository is also published as a browsable site via GitHub Pages:
+**https://xudipta.github.io/prep/** (docsify, no build step — see
+`.github/workflows/pages.yml`). It redeploys automatically on every push to
 `main`.
+
+If the link 404s, Pages hasn't been enabled on the repo yet — this is a
+one-time manual step (`Settings → Pages → Build and deployment → Source:
+GitHub Actions`) that a GitHub Actions workflow can't do on its own, since
+creating a Pages site requires repository-admin permissions that the
+workflow's token doesn't have. Once it's enabled once, every future push
+deploys automatically with no further action needed.
 
 ## Contributing a new problem or note
 
