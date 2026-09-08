@@ -36,9 +36,9 @@ valid:
 
 ```mermaid
 flowchart LR
-    Grow["expand right until\nhave == required (3)\nfirst valid window: \"ADOBEC\" (len 6)"] --> Shrink["shrink left while still valid\n(len can't improve further here)"]
-    Shrink --> Later["later, a shorter valid window\nis found: \"BANC\" (len 4)"]
-    Later --> Best["best = \"BANC\""]
+    Grow["expand right until\nhave == required (3)\nfirst valid window: ADOBEC (len 6)"] --> Shrink["shrink left while still valid\n(len can't improve further here)"]
+    Shrink --> Later["later, a shorter valid window\nis found: BANC (len 4)"]
+    Later --> Best["best = BANC"]
 ```
 
 ## How to Recognize This Pattern

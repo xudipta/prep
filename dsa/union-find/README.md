@@ -35,12 +35,10 @@ to the root, so the *next* `Find` on any of them is O(1):
 
 ```mermaid
 flowchart TD
-    subgraph before ["before Find(x)"]
-    direction TD
-    R1((root)) --> B1(("...")) --> C1((y)) --> X1((x))
+    subgraph before [before Find x]
+    R1((root)) --> B1((mid)) --> C1((y)) --> X1((x))
     end
-    subgraph after ["after Find(x): path compressed"]
-    direction TD
+    subgraph after [after Find x, path compressed]
     R2((root))
     R2 --> C2((y))
     R2 --> X2((x))

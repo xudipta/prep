@@ -13,12 +13,10 @@ practical `n`).
 
 ```mermaid
 flowchart TD
-    subgraph before ["Find(x) — before path compression"]
-    direction TD
+    subgraph before [before Find x]
     R1((root)) --> M1((y)) --> X1((x))
     end
-    subgraph after ["after Find(x) — path compressed"]
-    direction TD
+    subgraph after [after Find x, path compressed]
     R2((root)) --> M2((y))
     R2 --> X2((x))
     end

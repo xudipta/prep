@@ -32,12 +32,12 @@ last-seen index (0) is inside the current window, so `left` jumps past it:
 
 ```mermaid
 flowchart LR
-    subgraph before ["window before: [0,2] = \"abc\""]
+    subgraph before ["window before: 0 to 2, chars a b c"]
     direction LR
     A0["a(0)"] --- B1["b(1)"] --- C2["c(2)"]
     end
     Next["right=3 sees 'a', lastSeen['a']=0 >= left(0)"] --> Jump["left = 0 + 1 = 1"]
-    Jump --> After["window after: [1,3] = \"bca\", length 3"]
+    Jump --> After["window after: 1 to 3, chars b c a, length 3"]
 ```
 
 ## How to Recognize This Pattern
