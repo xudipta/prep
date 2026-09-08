@@ -11,6 +11,12 @@
   - [Sliding Window](dsa/sliding-window/README.md)
   - [Hashing](dsa/hashing/README.md)
   - [Binary Search](dsa/binary-search/README.md)
+  - [Prefix Sum](dsa/prefix-sum/README.md)
+  - [Greedy](dsa/greedy/README.md)
+  - [Stack / Monotonic Stack](dsa/stack/README.md)
+  - [Linked List](dsa/linked-list/README.md)
+  - [Bit Manipulation](dsa/bit-manipulation/README.md)
+  - [Union-Find](dsa/union-find/README.md)
   - [Dynamic Programming](dsa/dynamic-programming/README.md)
     - [DP Pattern Recognition](dsa/dynamic-programming/dp-pattern-recognition.md)
   - [Graphs](dsa/graphs/README.md)
@@ -33,6 +39,7 @@
 - **Computer Science**
   - [OOP](computer-science/oop/README.md)
     - [OOP Quick Revision](computer-science/oop/quick-revision.md)
+    - [OOP: C++ / Java / Go Notes](computer-science/oop/language-specific-notes.md)
   - [Operating Systems](computer-science/operating-systems/README.md)
   - [Databases](computer-science/databases/README.md)
   - [Networking](computer-science/networking/README.md)
@@ -44,6 +51,7 @@
   - [Design Patterns](system-design/design-patterns/README.md)
   - [Case Study: URL Shortener](system-design/case-studies/url-shortener.md)
   - [Case Study: Rate Limiter](system-design/case-studies/rate-limiter.md)
+  - [Case Study: Chat System](system-design/case-studies/chat-system.md)
 
 - **Tips & Revision**
   - [Tips & Tricks](tips-tricks/README.md)

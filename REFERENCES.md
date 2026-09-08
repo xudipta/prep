@@ -50,6 +50,15 @@ comes from one of these sources, the relevant note links back here.
   (referenced generically for case studies; no proprietary or confidential
   material is used)
 
+## C++ and Java Language Mechanics
+
+- The C++ Standard (ISO/IEC 14882) — virtual functions, RAII, and
+  inheritance semantics; cppreference.com used for cross-checking —
+  https://en.cppreference.com
+- The Java Language Specification (JLS) — https://docs.oracle.com/javase/specs/
+- Oracle Java Tutorials (interfaces, abstract classes, try-with-resources)
+  — https://docs.oracle.com/javase/tutorial/
+
 ## OOP & Design Patterns
 
 - Gamma, Helm, Johnson, Vlissides — *Design Patterns: Elements of Reusable

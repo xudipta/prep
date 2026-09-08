@@ -2,8 +2,8 @@
 
 Structure, motivation, and a minimal idiomatic Go example for each pattern
 covered so far. See `PROGRESS.md` for patterns still planned (Abstract
-Factory, Builder, Adapter, Facade, Proxy, Command, State, Template Method,
-Chain of Responsibility).
+Factory, Facade, Proxy, Command, State, Template Method, Chain of
+Responsibility).
 
 Note: several classical GoF patterns exist specifically to work around the
 lack of first-class functions/interfaces in older OO languages. Go's
@@ -105,6 +105,76 @@ otherwise (see Open/Closed and YAGNI in `computer-science/oop`).
 (Abstract Factory produces *families* of related objects through a shared
 interface; Factory Method produces one product, typically via a single
 method.)
+
+## Builder
+
+**Problem it solves**: construct a complex object step by step, especially
+one with many optional parameters — avoids a constructor with a long list
+of positional arguments (a "telescoping constructor") where most calls only
+need to set a few of them.
+
+**Structure**: a separate builder type accumulates configuration via
+chained method calls, then a final `Build()` method produces the
+fully-constructed object, validating required fields at that point.
+
+**When to use**: an object has many optional configuration fields, or
+construction requires several steps that benefit from being named/ordered
+explicitly (readability) rather than a single large struct literal.
+
+**When not to use**: a plain struct literal (Go's field-name struct
+literals already solve most of "avoid positional-argument confusion") is
+enough — don't add a builder for a handful of fields with no validation or
+step-ordering requirements.
+
+**Go example** (Go's named struct-literal fields already cover simple
+cases; a builder earns its place when construction needs validation or
+staged steps):
+
+```go
+type ServerConfig struct {
+    Host    string
+    Port    int
+    Timeout time.Duration
+    TLS     bool
+}
+
+type ServerConfigBuilder struct {
+    cfg ServerConfig
+}
+
+func NewServerConfigBuilder() *ServerConfigBuilder {
+    return &ServerConfigBuilder{cfg: ServerConfig{Port: 8080, Timeout: 30 * time.Second}}
+}
+
+func (b *ServerConfigBuilder) Host(h string) *ServerConfigBuilder { b.cfg.Host = h; return b }
+func (b *ServerConfigBuilder) Port(p int) *ServerConfigBuilder    { b.cfg.Port = p; return b }
+func (b *ServerConfigBuilder) TLS(enabled bool) *ServerConfigBuilder {
+    b.cfg.TLS = enabled
+    return b
+}
+
+func (b *ServerConfigBuilder) Build() (ServerConfig, error) {
+    if b.cfg.Host == "" {
+        return ServerConfig{}, fmt.Errorf("host is required")
+    }
+    return b.cfg, nil
+}
+
+// Usage: cfg, err := NewServerConfigBuilder().Host("api.example.com").TLS(true).Build()
+```
+
+**Trade-offs**: readable, chainable construction with validation at a
+single point, at the cost of extra boilerplate — often unnecessary in Go
+where named struct-literal fields (`ServerConfig{Host: "x", TLS: true}`)
+already solve the "which argument is which" problem that Builder solves in
+languages without named arguments.
+
+**Interview question**: why is Builder less commonly needed in Go than in
+Java, where it's ubiquitous? (Go's struct literals already support named
+fields with defaults via zero values, covering most of what Builder solves
+in languages that only have positional constructor arguments — Builder in
+Go earns its place mainly when there's real validation or staged/ordered
+construction logic, not just "many optional fields.")
 
 ## Strategy
 
@@ -241,14 +311,65 @@ definition. Decorator composes interface *values* at runtime, so which
 decorators wrap an object — and in what order — can be decided
 dynamically.)
 
+## Adapter
+
+**Problem it solves**: make an existing type usable where a different
+interface is expected, without modifying the existing type — typically
+because you don't own it (a third-party library, generated code) or don't
+want to change its existing callers.
+
+**Structure**: a wrapper type implements the target interface and
+translates calls into the wrapped type's actual method signatures.
+
+**When to use**: integrating a third-party type (or legacy code) with an
+interface your code already depends on, where changing either side isn't
+practical.
+
+**When not to use**: you control both sides and could simply make the
+existing type implement the interface directly — an adapter adds an
+unnecessary layer of indirection when a direct implementation would do.
+
+**Go example**:
+
+```go
+// Target interface your code depends on.
+type Logger interface{ Log(msg string) }
+
+// ThirdPartyLogger has an incompatible method signature/name — imagine
+// this type comes from an external package you can't modify.
+type ThirdPartyLogger struct{}
+func (ThirdPartyLogger) WriteEntry(level, msg string) { /* ... */ }
+
+// LoggerAdapter adapts ThirdPartyLogger to the Logger interface.
+type LoggerAdapter struct{ Wrapped ThirdPartyLogger }
+func (a LoggerAdapter) Log(msg string) { a.Wrapped.WriteEntry("INFO", msg) }
+
+// Usage: var logger Logger = LoggerAdapter{Wrapped: ThirdPartyLogger{}}
+```
+
+**Trade-offs**: lets incompatible interfaces work together without
+modifying either side, at the cost of an extra indirection layer — fine
+when you don't own one side, wasteful when you do.
+
+**Interview question**: how is Adapter different from Decorator, given
+both "wrap another type"? (Adapter changes the *interface* — the wrapped
+type didn't originally satisfy what's needed. Decorator keeps the *same*
+interface on both sides and adds behavior around it. Adapter answers "how
+do I make this fit?"; Decorator answers "how do I add to this?")
+
 ## Quick Revision
 
 - **Singleton**: one instance, global access — `sync.Once`; prefer DI when
   possible.
 - **Factory**: hide concrete-type selection behind a function/interface
   return type.
+- **Builder**: step-by-step construction with validation — often
+  unnecessary in Go given named struct-literal fields, unless real
+  validation/staged construction is involved.
 - **Strategy**: swappable algorithm — often just a function value in Go.
 - **Observer**: subject notifies a list of observer interfaces on state
   change — watch for blocking/slow observers.
 - **Decorator**: wrap the same interface to layer behavior (logging,
   caching) composably, without subclassing.
+- **Adapter**: wrap a type to satisfy a *different* interface than it
+  natively implements — for integrating code you don't own.

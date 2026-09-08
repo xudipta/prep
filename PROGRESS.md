@@ -11,27 +11,27 @@ planned but not yet written — see the repo's contribution guide in the root
 - [x] Hashing
 - [x] Binary Search
 - [ ] Sorting
-- [ ] Prefix Sum
-- [ ] Greedy
+- [x] Prefix Sum
+- [x] Greedy
 - [ ] Divide and Conquer
 - [ ] Recursion
 - [x] Backtracking
-- [x] Dynamic Programming (1D DP, Take/Skip, 0/1 Knapsack)
+- [x] Dynamic Programming (1D DP, Take/Skip, 0/1 Knapsack, LCS, LIS, DP + Binary Search)
   - [ ] 2D / Grid DP
   - [ ] Subset Sum
   - [ ] Partition DP
-  - [ ] String DP
-  - [ ] Longest Common Subsequence
-  - [ ] Longest Increasing Subsequence
+  - [ ] String DP (beyond LCS — e.g. Edit Distance)
+  - [x] Longest Common Subsequence
+  - [x] Longest Increasing Subsequence
   - [ ] Interval DP
   - [ ] Tree DP
   - [ ] State Machine DP
   - [ ] Bitmask DP
   - [ ] Digit DP
-  - [ ] DP + Binary Search
+  - [x] DP + Binary Search
   - [ ] DP on DAGs
-- [x] Graph Algorithms (traversal, topological sort)
-  - [ ] Dijkstra
+- [x] Graph Algorithms (traversal, topological sort, Dijkstra)
+  - [x] Dijkstra
   - [ ] Bellman-Ford
   - [ ] Floyd-Warshall
   - [ ] Kruskal / Prim (MST)
@@ -42,14 +42,14 @@ planned but not yet written — see the repo's contribution guide in the root
   - [ ] Serialize / Deserialize
   - [ ] Tree DP
 - [ ] Heap / Priority Queue (problems)
-- [ ] Stack / Monotonic Stack (problems)
+- [x] Stack / Monotonic Stack (problems)
 - [ ] Queue / Deque (problems)
-- [ ] Linked List (problems)
-- [ ] Bit Manipulation
+- [x] Linked List (problems)
+- [x] Bit Manipulation
 - [ ] String Algorithms (KMP, Z-function, Rabin-Karp)
 - [ ] Mathematical / Number Theory
 - [ ] Trie (problems)
-- [ ] Disjoint Set Union (problems)
+- [x] Disjoint Set Union / Union-Find (problems)
 - [ ] Segment Tree / Fenwick Tree (problems)
 - [ ] Computational Geometry
 
@@ -72,6 +72,9 @@ planned but not yet written — see the repo's contribution guide in the root
 ## Computer Science Fundamentals (`computer-science/`)
 
 - [x] OOP
+  - [x] Language-specific notes (C++, Java, Go: virtual functions, abstract
+    classes/interfaces, multiple inheritance, constructors/destructors,
+    operator overloading)
 - [x] Operating Systems
 - [x] Databases
 - [x] Networking
@@ -81,10 +84,10 @@ planned but not yet written — see the repo's contribution guide in the root
 
 - [x] Fundamentals
 - [x] Estimation cheatsheet
-- [x] Design Patterns (Singleton, Factory, Strategy, Observer, Decorator)
-  - [ ] Abstract Factory, Builder, Adapter, Facade, Proxy, Command, State, Template Method, Chain of Responsibility
-- [x] Case studies: URL Shortener, Rate Limiter
-  - [ ] Notification System, Chat System, File Storage, Video Streaming, Ride Sharing, News Feed, Search Autocomplete, Job Scheduler, Metrics/Logging Platform
+- [x] Design Patterns (Singleton, Factory, Builder, Strategy, Observer, Decorator, Adapter)
+  - [ ] Abstract Factory, Facade, Proxy, Command, State, Template Method, Chain of Responsibility
+- [x] Case studies: URL Shortener, Rate Limiter, Chat System
+  - [ ] Notification System, File Storage, Video Streaming, Ride Sharing, News Feed, Search Autocomplete, Job Scheduler, Metrics/Logging Platform
 
 ## Revision (`revision/`)
 

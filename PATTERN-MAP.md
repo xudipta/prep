@@ -29,6 +29,17 @@ Representative problems
 | "Minimize the maximum" / "maximize the minimum", answer space is monotonic | Binary search on the answer | Binary Search | Koko Eating Bananas |
 | Need every subset/combination/permutation | Decision tree with undo | Backtracking | Subsets, N-Queens |
 | Constraints prune a large search space (board positions, sudoku) | Backtracking + pruning | Backtracking | N-Queens |
+| Need the sum/count of a contiguous range, queried repeatedly on a static array | Precompute cumulative sums | Prefix Sum | Range Sum Query - Immutable |
+| Number of subarrays with sum equal to K, negative numbers present | Prefix sum + hashing | Prefix Sum | Subarray Sum Equals K |
+| Minimize/maximize X to achieve Y, a locally-best choice provably safe (exchange argument) | Sort + greedy scan | Greedy | Jump Game, Gas Station |
+| Matching/nesting of paired tokens | Stack (LIFO) | Stack | Valid Parentheses |
+| Next/previous greater or smaller element, days until warmer | Monotonic stack | Stack | Daily Temperatures |
+| Reverse/reorder/rearrange a linked list, or find a node via fast/slow pointers | Pointer rewiring | Linked List | Reverse Linked List |
+| Merge multiple sorted linked structures | Pointer-per-list merge (+ heap for k) | Linked List | Merge Two Sorted Lists |
+| Every element appears twice except one, O(1) space required | XOR self-cancellation | Bit Manipulation | Single Number |
+| Per-number property computed for every number up to n | Bit trick + DP recurrence | Bit Manipulation | Counting Bits |
+| Groups form incrementally from pairwise connections; need "same group?" queries | Union-Find | Union-Find | Number of Provinces |
+| Find the edge that creates a cycle while building a graph incrementally | Union-Find cycle detection | Union-Find | Redundant Connection |
 
 ## Trees & Graphs
 
@@ -39,9 +50,9 @@ Representative problems
 | Grid where cells connect to neighbors | Grid-as-graph | Graphs / BFS-DFS | Number of Islands |
 | "Can all tasks/courses be completed given dependencies" | Cycle detection via topological sort | Graphs / Topological Sort | Course Schedule |
 | Need shortest path, unweighted graph | BFS | Graphs | (planned: Word Ladder) |
-| Need shortest path, weighted, non-negative | Dijkstra | Graphs / Shortest Path | (planned) |
+| Need shortest path, weighted, non-negative | Dijkstra | Graphs / Shortest Path | Network Delay Time |
 | Need shortest path, negative weights allowed | Bellman-Ford | Graphs / Shortest Path | (planned) |
-| Need connectivity / cycle detection with union operations | Union-Find (DSU) | Data Structures / DSU | (planned) |
+| Need connectivity / cycle detection with union operations | Union-Find (DSU) | Union-Find | Redundant Connection, Number of Provinces |
 | Need to connect all nodes with minimum total edge weight | MST (Kruskal/Prim) | Graphs / MST | (planned) |
 
 ## Dynamic Programming
@@ -51,8 +62,8 @@ Representative problems
 | "Count the number of ways" / "min/max cost to reach state i" with a small, linear state | 1D DP | 1D DP | Climbing Stairs |
 | Adjacent-element constraint ("can't pick two neighbors") | Take/skip DP | 1D DP | House Robber |
 | Choose a subset of items under a capacity constraint | Knapsack | 0/1 or unbounded knapsack | 0/1 Knapsack |
-| Compare two sequences | LCS-family | String DP | (planned: Longest Common Subsequence) |
-| Find the longest ordered subsequence | LIS-family | Sequence DP | (planned: Longest Increasing Subsequence) |
+| Compare two sequences | LCS-family | String DP | Longest Common Subsequence |
+| Find the longest ordered subsequence | LIS-family | Sequence DP | Longest Increasing Subsequence |
 | Optimal way to combine/merge a contiguous range | Interval DP | Interval DP | (planned: Matrix Chain / Burst Balloons) |
 | DP over tree structure | Tree DP | Tree DP | (planned) |
 | Small N (≤ ~20) with subsets as state | Bitmask DP | Bitmask DP | (planned: TSP) |
