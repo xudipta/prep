@@ -1,5 +1,7 @@
 # Problem: Single Number
 
+🔗 **[Try it on LeetCode](https://leetcode.com/problems/single-number/)**
+
 ## Problem Statement
 
 Given a non-empty array of integers where every element appears exactly

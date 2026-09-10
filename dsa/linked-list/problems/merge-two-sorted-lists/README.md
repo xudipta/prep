@@ -1,5 +1,7 @@
 # Problem: Merge Two Sorted Lists
 
+🔗 **[Try it on LeetCode](https://leetcode.com/problems/merge-two-sorted-lists/)**
+
 ## Problem Statement
 
 Given the heads of two sorted linked lists `l1` and `l2`, merge them into

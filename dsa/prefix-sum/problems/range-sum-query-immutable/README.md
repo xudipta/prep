@@ -1,5 +1,7 @@
 # Problem: Range Sum Query - Immutable
 
+🔗 **[Try it on LeetCode](https://leetcode.com/problems/range-sum-query-immutable/)**
+
 ## Problem Statement
 
 Given an integer array `nums` that does not change, design a structure

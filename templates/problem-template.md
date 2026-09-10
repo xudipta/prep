@@ -1,5 +1,10 @@
 # Problem: <Problem Name>
 
+🔗 **[Try it on LeetCode](<https://leetcode.com/problems/problem-slug/>)**
+(if the problem isn't hosted on LeetCode as framed here, say so and link
+the closest official equivalent instead, per `REFERENCES.md`'s source-
+quality bar — never a fabricated link)
+
 ## Problem Statement
 
 <Clear description of the problem, including input/output format and constraints.>
@@ -19,6 +24,13 @@ Easy / Medium / Hard
 ## Key Insight
 
 <Short explanation of the core observation that unlocks the problem.>
+
+## Visual Overview
+
+<A Mermaid diagram illustrating the technique's mechanism or this
+problem's specific dry run — derived from and checked against the Dry
+Run/Algorithm sections below, not invented independently, so the diagram
+and the prose can't drift apart.>
 
 ## How to Recognize This Pattern
 

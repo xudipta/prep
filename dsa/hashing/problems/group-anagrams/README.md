@@ -1,5 +1,7 @@
 # Problem: Group Anagrams
 
+🔗 **[Try it on LeetCode](https://leetcode.com/problems/group-anagrams/)**
+
 ## Problem Statement
 
 Given an array of strings `strs`, group the anagrams together. Return the

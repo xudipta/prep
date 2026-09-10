@@ -1,5 +1,7 @@
 # Problem: Redundant Connection
 
+🔗 **[Try it on LeetCode](https://leetcode.com/problems/redundant-connection/)**
+
 ## Problem Statement
 
 A tree with `n` nodes originally had exactly `n-1` edges. One extra edge

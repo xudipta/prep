@@ -1,5 +1,7 @@
 # Problem: Network Delay Time
 
+🔗 **[Try it on LeetCode](https://leetcode.com/problems/network-delay-time/)**
+
 ## Problem Statement
 
 There are `n` network nodes labeled `1` to `n`. Given directed weighted

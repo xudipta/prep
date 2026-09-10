@@ -1,5 +1,7 @@
 # Problem: Climbing Stairs
 
+🔗 **[Try it on LeetCode](https://leetcode.com/problems/climbing-stairs/)**
+
 ## Problem Statement
 
 You're climbing a staircase with `n` steps. Each move, you can climb either

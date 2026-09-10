@@ -1,5 +1,7 @@
 # Problem: Lowest Common Ancestor of a Binary Search Tree
 
+🔗 **[Try it on LeetCode](https://leetcode.com/problems/lowest-common-ancestor-of-a-binary-search-tree/)**
+
 ## Problem Statement
 
 Given a binary search tree (BST) and two nodes `p` and `q` known to exist in

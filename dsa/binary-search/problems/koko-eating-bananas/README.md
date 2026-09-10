@@ -1,5 +1,7 @@
 # Problem: Koko Eating Bananas
 
+🔗 **[Try it on LeetCode](https://leetcode.com/problems/koko-eating-bananas/)**
+
 ## Problem Statement
 
 Koko has `piles[i]` bananas in pile `i`. She eats at a constant speed of `k`

@@ -1,5 +1,7 @@
 # Problem: Daily Temperatures
 
+🔗 **[Try it on LeetCode](https://leetcode.com/problems/daily-temperatures/)**
+
 ## Problem Statement
 
 Given an array `temperatures`, return an array `answer` where `answer[i]`

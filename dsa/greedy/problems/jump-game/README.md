@@ -1,5 +1,7 @@
 # Problem: Jump Game
 
+🔗 **[Try it on LeetCode](https://leetcode.com/problems/jump-game/)**
+
 ## Problem Statement
 
 Given an array `nums` where `nums[i]` is the maximum jump length from index

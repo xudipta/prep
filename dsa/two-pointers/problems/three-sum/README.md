@@ -1,5 +1,7 @@
 # Problem: 3Sum
 
+🔗 **[Try it on LeetCode](https://leetcode.com/problems/3sum/)**
+
 ## Problem Statement
 
 Given an integer array `nums`, return all unique triplets `[a, b, c]` such

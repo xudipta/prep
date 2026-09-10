@@ -1,5 +1,7 @@
 # Problem: Number of Provinces
 
+🔗 **[Try it on LeetCode](https://leetcode.com/problems/number-of-provinces/)**
+
 ## Problem Statement
 
 There are `n` cities. `isConnected` is an `n x n` matrix where

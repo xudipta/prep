@@ -1,5 +1,7 @@
 # Problem: Longest Common Subsequence
 
+🔗 **[Try it on LeetCode](https://leetcode.com/problems/longest-common-subsequence/)**
+
 ## Problem Statement
 
 Given two strings `text1` and `text2`, return the length of their longest

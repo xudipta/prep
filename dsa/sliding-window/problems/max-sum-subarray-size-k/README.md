@@ -1,5 +1,12 @@
 # Problem: Maximum Sum Subarray of Size K
 
+🔗 **Not directly on LeetCode** (this exact framing is a common
+interview-pattern warm-up, not a hosted problem) — the closest official
+equivalent is **[LeetCode 643 — Maximum Average Subarray I](https://leetcode.com/problems/maximum-average-subarray-i/)**,
+which is the same fixed-window problem (maximizing the average of a
+size-`k` window is equivalent to maximizing its sum, since `k` is
+constant).
+
 ## Problem Statement
 
 Given an array of integers `nums` and an integer `k`, find the maximum sum

@@ -1,5 +1,7 @@
 # Problem: N-Queens
 
+🔗 **[Try it on LeetCode](https://leetcode.com/problems/n-queens/)**
+
 ## Problem Statement
 
 Place `n` queens on an `n x n` chessboard such that no two queens attack

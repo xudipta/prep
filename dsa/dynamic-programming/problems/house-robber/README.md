@@ -1,5 +1,7 @@
 # Problem: House Robber
 
+🔗 **[Try it on LeetCode](https://leetcode.com/problems/house-robber/)**
+
 ## Problem Statement
 
 Given an array `nums` where `nums[i]` is the amount of money in house `i`,

@@ -1,5 +1,7 @@
 # Problem: Binary Search (Basic)
 
+🔗 **[Try it on LeetCode](https://leetcode.com/problems/binary-search/)**
+
 ## Problem Statement
 
 Given a sorted array of distinct integers `nums` and a target value, return
