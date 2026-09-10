@@ -1,9 +1,10 @@
 # Problem: <Problem Name>
 
-🔗 **[Try it on LeetCode](<https://leetcode.com/problems/problem-slug/>)**
-(if the problem isn't hosted on LeetCode as framed here, say so and link
-the closest official equivalent instead, per `REFERENCES.md`'s source-
-quality bar — never a fabricated link)
+🔗 **Try it on LeetCode:** `https://leetcode.com/problems/<problem-slug>/`
+(a placeholder — replace `<problem-slug>` with the real one; if the
+problem isn't hosted on LeetCode as framed here, say so and link the
+closest official equivalent instead, per `REFERENCES.md`'s source-quality
+bar — never a fabricated link)
 
 ## Problem Statement
 
