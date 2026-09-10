@@ -1,5 +1,7 @@
 # Problem: Two Sum
 
+🔗 **[Try it on LeetCode](https://leetcode.com/problems/two-sum/)**
+
 ## Problem Statement
 
 Given an array of integers `nums` and an integer `target`, return the

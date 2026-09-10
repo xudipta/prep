@@ -1,5 +1,7 @@
 # Problem: Number of Islands
 
+🔗 **[Try it on LeetCode](https://leetcode.com/problems/number-of-islands/)**
+
 ## Problem Statement
 
 Given an `m x n` grid of `'1'` (land) and `'0'` (water), return the number of

@@ -1,5 +1,7 @@
 # Problem: Course Schedule
 
+🔗 **[Try it on LeetCode](https://leetcode.com/problems/course-schedule/)**
+
 ## Problem Statement
 
 There are `numCourses` courses labeled `0` to `numCourses-1`. Given a list

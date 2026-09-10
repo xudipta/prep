@@ -1,5 +1,7 @@
 # Problem: Subarray Sum Equals K
 
+🔗 **[Try it on LeetCode](https://leetcode.com/problems/subarray-sum-equals-k/)**
+
 ## Problem Statement
 
 Given an integer array `nums` and an integer `k`, return the total number of

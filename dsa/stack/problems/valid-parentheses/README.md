@@ -1,5 +1,7 @@
 # Problem: Valid Parentheses
 
+🔗 **[Try it on LeetCode](https://leetcode.com/problems/valid-parentheses/)**
+
 ## Problem Statement
 
 Given a string containing only the characters `(`, `)`, `{`, `}`, `[`, `]`,

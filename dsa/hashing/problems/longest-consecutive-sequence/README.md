@@ -1,5 +1,7 @@
 # Problem: Longest Consecutive Sequence
 
+🔗 **[Try it on LeetCode](https://leetcode.com/problems/longest-consecutive-sequence/)**
+
 ## Problem Statement
 
 Given an unsorted array of integers `nums`, find the length of the longest

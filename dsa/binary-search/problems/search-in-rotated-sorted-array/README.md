@@ -1,5 +1,7 @@
 # Problem: Search in Rotated Sorted Array
 
+🔗 **[Try it on LeetCode](https://leetcode.com/problems/search-in-rotated-sorted-array/)**
+
 ## Problem Statement
 
 An array of distinct integers, originally sorted ascending, has been rotated

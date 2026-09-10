@@ -1,5 +1,7 @@
 # Problem: Counting Bits
 
+🔗 **[Try it on LeetCode](https://leetcode.com/problems/counting-bits/)**
+
 ## Problem Statement
 
 Given an integer `n`, return an array `answer` of length `n+1` where

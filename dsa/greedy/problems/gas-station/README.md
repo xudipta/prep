@@ -1,5 +1,7 @@
 # Problem: Gas Station
 
+🔗 **[Try it on LeetCode](https://leetcode.com/problems/gas-station/)**
+
 ## Problem Statement
 
 There are `n` gas stations in a circle. `gas[i]` is the fuel available at

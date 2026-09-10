@@ -1,5 +1,12 @@
 # Problem: 0/1 Knapsack
 
+🔗 **Not on LeetCode** (0/1 Knapsack itself is a classic textbook/GeeksforGeeks
+problem, not a hosted LeetCode problem) — practice the same pattern via
+**[LeetCode 416 — Partition Equal Subset Sum](https://leetcode.com/problems/partition-equal-subset-sum/)**
+(subset-sum specialization) or
+**[LeetCode 322 — Coin Change](https://leetcode.com/problems/coin-change/)**
+(the unbounded-knapsack variant).
+
 ## Problem Statement
 
 Given `n` items, each with a weight `weights[i]` and a value `values[i]`,

@@ -1,5 +1,7 @@
 # Problem: Longest Substring Without Repeating Characters
 
+🔗 **[Try it on LeetCode](https://leetcode.com/problems/longest-substring-without-repeating-characters/)**
+
 ## Problem Statement
 
 Given a string `s`, find the length of the longest substring without
