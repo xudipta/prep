@@ -97,7 +97,16 @@ memorized answers to specific questions.
 Follow this order if you're starting from scratch; jump around freely if
 you're revising. This is also the order every technique appears in the
 sidebar, `PROBLEMS.md`, and `PROGRESS.md`, so you can move between them
-without losing your place:
+without losing your place. The sidebar groups these 14 techniques into 5
+collapsible clusters so the nav doesn't show all of them at once — each
+cluster below is a contiguous stretch of this same order, not a
+reordering:
+
+- **Arrays & Strings**: Hashing, Two Pointers, Sliding Window, Prefix Sum
+- **Linear Structures**: Stack, Linked List
+- **Search & Recursion**: Binary Search, Backtracking
+- **Trees & Graphs**: Trees, Graphs, Union-Find
+- **Optimization**: Bit Manipulation, Greedy, Dynamic Programming
 
 ```
 Programming Fundamentals
