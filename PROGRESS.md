@@ -6,16 +6,37 @@ planned but not yet written — see the repo's contribution guide in the root
 
 ## Techniques (`dsa/`)
 
+Listed in the order they're meant to be studied — see `README.md`'s
+"Learning path" for the rationale. This matches the sidebar and
+`PROBLEMS.md`.
+
+- [x] Hashing
 - [x] Two Pointers
 - [x] Sliding Window
-- [x] Hashing
+- [x] Prefix Sum
+- [x] Stack / Monotonic Stack (problems)
+  - [ ] Queue / Deque (problems)
+  - [ ] Heap / Priority Queue (problems)
+- [x] Linked List (problems)
 - [x] Binary Search
 - [ ] Sorting
-- [x] Prefix Sum
-- [x] Greedy
-- [ ] Divide and Conquer
 - [ ] Recursion
 - [x] Backtracking
+- [x] Tree Algorithms (BFS, BST)
+  - [ ] Diameter
+  - [ ] Serialize / Deserialize
+  - [ ] Tree DP
+- [x] Graph Algorithms (traversal, topological sort, Dijkstra)
+  - [x] Dijkstra
+  - [ ] Bellman-Ford
+  - [ ] Floyd-Warshall
+  - [ ] Kruskal / Prim (MST)
+  - [ ] Bridges / Articulation Points
+  - [ ] Strongly Connected Components
+- [x] Disjoint Set Union / Union-Find (problems)
+- [x] Bit Manipulation
+- [x] Greedy
+- [ ] Divide and Conquer
 - [x] Dynamic Programming (1D DP, Take/Skip, 0/1 Knapsack, LCS, LIS, DP + Binary Search)
   - [ ] 2D / Grid DP
   - [ ] Subset Sum
@@ -30,26 +51,9 @@ planned but not yet written — see the repo's contribution guide in the root
   - [ ] Digit DP
   - [x] DP + Binary Search
   - [ ] DP on DAGs
-- [x] Graph Algorithms (traversal, topological sort, Dijkstra)
-  - [x] Dijkstra
-  - [ ] Bellman-Ford
-  - [ ] Floyd-Warshall
-  - [ ] Kruskal / Prim (MST)
-  - [ ] Bridges / Articulation Points
-  - [ ] Strongly Connected Components
-- [x] Tree Algorithms (BFS, BST)
-  - [ ] Diameter
-  - [ ] Serialize / Deserialize
-  - [ ] Tree DP
-- [ ] Heap / Priority Queue (problems)
-- [x] Stack / Monotonic Stack (problems)
-- [ ] Queue / Deque (problems)
-- [x] Linked List (problems)
-- [x] Bit Manipulation
 - [ ] String Algorithms (KMP, Z-function, Rabin-Karp)
 - [ ] Mathematical / Number Theory
 - [ ] Trie (problems)
-- [x] Disjoint Set Union / Union-Find (problems)
 - [ ] Segment Tree / Fenwick Tree (problems)
 - [ ] Computational Geometry
 

@@ -86,7 +86,9 @@ memorized answers to specific questions.
 ## Learning path
 
 Follow this order if you're starting from scratch; jump around freely if
-you're revising:
+you're revising. This is also the order every technique appears in the
+sidebar, `PROBLEMS.md`, and `PROGRESS.md`, so you can move between them
+without losing your place:
 
 ```
 Programming Fundamentals
@@ -95,40 +97,55 @@ Complexity Analysis            → revision/algorithms-cheatsheet.md
         ↓
 Basic Data Structures          → data-structures/
         ↓
-Arrays / Strings / Hashing     → dsa/hashing
+Hashing                        → dsa/hashing            (arrays/strings base toolkit)
         ↓
-Two Pointers / Sliding Window  → dsa/two-pointers, dsa/sliding-window
+Two Pointers                   → dsa/two-pointers
         ↓
-Stack / Queue / Heap           → data-structures/
+Sliding Window                 → dsa/sliding-window
+        ↓
+Prefix Sum                     → dsa/prefix-sum
+        ↓
+Stack / Monotonic Stack        → dsa/stack
+        ↓
+Linked List                    → dsa/linked-list
         ↓
 Binary Search                  → dsa/binary-search
         ↓
-Recursion / Backtracking       → dsa/backtracking
+Backtracking                   → dsa/backtracking       (recursion)
         ↓
 Trees                          → dsa/trees
         ↓
 Graphs                         → dsa/graphs
         ↓
-Greedy / Divide & Conquer
+Union-Find                     → dsa/union-find          (graph connectivity, DSU)
         ↓
-Dynamic Programming            → dsa/dynamic-programming
+Bit Manipulation               → dsa/bit-manipulation
         ↓
-Advanced Data Structures       → Trie, DSU, Segment Tree, Fenwick Tree
+Greedy                         → dsa/greedy
+        ↓
+Dynamic Programming            → dsa/dynamic-programming (capstone: recursion + memoization)
         ↓
 CS Fundamentals                → computer-science/
         ↓
 System Design                  → system-design/
 ```
 
-**Why this order:** each stage builds a prerequisite for the next. Hashing and
-two pointers give you the base toolkit for array/string problems. Binary
-search and recursion are the mental building blocks for backtracking, trees,
-and eventually DP (which is recursion + memoization). Graphs generalize
-trees. DP is placed after recursion/trees/graphs because most DP transitions
-are best understood as "recursion on a smaller subproblem, cached." CS
-fundamentals and system design come last because interview loops typically
-test them in later rounds, and system design draws on data structure and
-scaling intuition built earlier.
+**Why this order:** each stage builds a prerequisite for the next. Hashing,
+two pointers, sliding window, and prefix sum are the base array/string
+toolkit. Stack and linked list are the next-simplest linear-structure
+techniques. Binary search and backtracking (recursion) are the mental
+building blocks for trees, then graphs, which generalize trees. Union-Find
+follows graphs since its two problems here are graph-connectivity problems
+(cycle detection, component counting) — the same shape as the graph
+traversal problems just solved, but with a different data structure. Bit
+manipulation is a mostly independent toolkit slotted in once the core
+patterns are solid. Greedy comes right before DP because they're often two
+answers to the same question ("is there a locally-optimal choice that's
+always safe?") — and DP is placed last because most DP transitions are best
+understood as "recursion on a smaller subproblem, cached," so it builds on
+everything above it. CS fundamentals and system design come last because
+interview loops typically test them in later rounds, and system design draws
+on data structure and scaling intuition built earlier.
 
 ## Difficulty levels
 

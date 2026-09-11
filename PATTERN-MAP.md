@@ -19,27 +19,30 @@ Representative problems
 
 | Characteristic | Likely pattern | Technique | Representative problems |
 |---|---|---|---|
+| Need O(1) lookup of "have I seen this / what's its count" | Hash map/set | Hashing | Two Sum, Longest Consecutive Sequence |
+| Need to group items by an equivalence relation | Canonical key hashing | Hashing | Group Anagrams |
 | Need pairs/triples summing to a target, array sortable | Fix + converge | Two Pointers | Three Sum |
 | Two ends of a sorted/monotonic structure, want max/min of a function of both ends | Converging pointers | Two Pointers | Container With Most Water |
 | Contiguous subarray/substring, fixed length K | Fixed window | Sliding Window | Max Sum Subarray of Size K |
 | Contiguous subarray/substring, "longest/shortest satisfying a constraint" | Variable window | Sliding Window | Longest Substring Without Repeating Characters, Minimum Window Substring |
-| Need O(1) lookup of "have I seen this / what's its count" | Hash map/set | Hashing | Two Sum, Longest Consecutive Sequence |
-| Need to group items by an equivalence relation | Canonical key hashing | Hashing | Group Anagrams |
-| Sorted (or rotated-sorted) array, need an index/value | Binary Search | Binary Search | Binary Search (Basic), Search in Rotated Sorted Array |
-| "Minimize the maximum" / "maximize the minimum", answer space is monotonic | Binary search on the answer | Binary Search | Koko Eating Bananas |
-| Need every subset/combination/permutation | Decision tree with undo | Backtracking | Subsets, N-Queens |
-| Constraints prune a large search space (board positions, sudoku) | Backtracking + pruning | Backtracking | N-Queens |
 | Need the sum/count of a contiguous range, queried repeatedly on a static array | Precompute cumulative sums | Prefix Sum | Range Sum Query - Immutable |
 | Number of subarrays with sum equal to K, negative numbers present | Prefix sum + hashing | Prefix Sum | Subarray Sum Equals K |
-| Minimize/maximize X to achieve Y, a locally-best choice provably safe (exchange argument) | Sort + greedy scan | Greedy | Jump Game, Gas Station |
 | Matching/nesting of paired tokens | Stack (LIFO) | Stack | Valid Parentheses |
 | Next/previous greater or smaller element, days until warmer | Monotonic stack | Stack | Daily Temperatures |
 | Reverse/reorder/rearrange a linked list, or find a node via fast/slow pointers | Pointer rewiring | Linked List | Reverse Linked List |
 | Merge multiple sorted linked structures | Pointer-per-list merge (+ heap for k) | Linked List | Merge Two Sorted Lists |
+| Sorted (or rotated-sorted) array, need an index/value | Binary Search | Binary Search | Binary Search (Basic), Search in Rotated Sorted Array |
+| "Minimize the maximum" / "maximize the minimum", answer space is monotonic | Binary search on the answer | Binary Search | Koko Eating Bananas |
+| Need every subset/combination/permutation | Decision tree with undo | Backtracking | Subsets, N-Queens |
+| Constraints prune a large search space (board positions, sudoku) | Backtracking + pruning | Backtracking | N-Queens |
 | Every element appears twice except one, O(1) space required | XOR self-cancellation | Bit Manipulation | Single Number |
 | Per-number property computed for every number up to n | Bit trick + DP recurrence | Bit Manipulation | Counting Bits |
-| Groups form incrementally from pairwise connections; need "same group?" queries | Union-Find | Union-Find | Number of Provinces |
-| Find the edge that creates a cycle while building a graph incrementally | Union-Find cycle detection | Union-Find | Redundant Connection |
+| Minimize/maximize X to achieve Y, a locally-best choice provably safe (exchange argument) | Sort + greedy scan | Greedy | Jump Game, Gas Station |
+
+Union-Find characteristics are covered once, in the Trees & Graphs table
+below — its two problems here are graph-connectivity problems, not
+array/string ones, even though the underlying structure is often given as
+an edge list or matrix.
 
 ## Trees & Graphs
 
