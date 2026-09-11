@@ -86,7 +86,9 @@ Space: O(1) extra (excluding the output and the space used by sorting)
 
 ## Sample Solution
 
-See [`solution.go`](./solution.go).
+See [`solution.go`](https://github.com/xudipta/prep/blob/main/dsa/two-pointers/problems/three-sum/solution.go).
+
+It also has a C++ port at [`cpp/solution.cpp`](https://github.com/xudipta/prep/blob/main/dsa/two-pointers/problems/three-sum/cpp/solution.cpp), a self-contained file with its own `assert`-based `main()` as its test suite.
 
 ## Dry Run
 
