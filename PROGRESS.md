@@ -118,3 +118,7 @@ Listed in the order they're meant to be studied — see `README.md`'s
   mermaid support) and natively by GitHub's own markdown viewer
 - [x] Themed docsify site: custom light/dark palette with a toggle button,
   Google Fonts (Inter/JetBrains Mono), styled tables and code blocks
+- [x] C++ ports of all 36 problem solutions at `cpp/solution.cpp`, each
+  self-verifying via its own `assert`-based `main()`, checked in CI by
+  `scripts/verify-cpp-solutions.sh`. Go remains the primary, tested
+  reference implementation.

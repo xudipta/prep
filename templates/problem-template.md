@@ -63,7 +63,12 @@ Space: O(...)
 
 ## Sample Solution
 
-See [`solution.go`](./solution.go).
+See [`solution.go`](./solution.go), the primary, tested reference
+solution. Some problems also have a C++ port at
+[`cpp/solution.cpp`](./cpp/solution.cpp) — a self-contained file with its
+own `assert`-based `main()` acting as its test suite (not every problem
+has one yet; see `scripts/verify-cpp-solutions.sh` for how they're
+verified in CI).
 
 ## Dry Run
 
