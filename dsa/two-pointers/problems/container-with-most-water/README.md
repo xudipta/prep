@@ -84,7 +84,9 @@ Space: O(1)
 
 ## Sample Solution
 
-See [`solution.go`](./solution.go).
+See [`solution.go`](https://github.com/xudipta/prep/blob/main/dsa/two-pointers/problems/container-with-most-water/solution.go).
+
+It also has a C++ port at [`cpp/solution.cpp`](https://github.com/xudipta/prep/blob/main/dsa/two-pointers/problems/container-with-most-water/cpp/solution.cpp), a self-contained file with its own `assert`-based `main()` as its test suite.
 
 ## Dry Run
 

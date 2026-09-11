@@ -79,7 +79,9 @@ Space: O(1)
 
 ## Sample Solution
 
-See [`solution.go`](./solution.go).
+See [`solution.go`](https://github.com/xudipta/prep/blob/main/dsa/sliding-window/problems/max-sum-subarray-size-k/solution.go).
+
+It also has a C++ port at [`cpp/solution.cpp`](https://github.com/xudipta/prep/blob/main/dsa/sliding-window/problems/max-sum-subarray-size-k/cpp/solution.cpp), a self-contained file with its own `assert`-based `main()` as its test suite.
 
 ## Dry Run
 

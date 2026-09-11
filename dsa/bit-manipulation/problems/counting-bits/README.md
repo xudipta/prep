@@ -85,7 +85,9 @@ Space: O(n) for the output (O(1) additional working space)
 
 ## Sample Solution
 
-See [`solution.go`](./solution.go).
+See [`solution.go`](https://github.com/xudipta/prep/blob/main/dsa/bit-manipulation/problems/counting-bits/solution.go).
+
+It also has a C++ port at [`cpp/solution.cpp`](https://github.com/xudipta/prep/blob/main/dsa/bit-manipulation/problems/counting-bits/cpp/solution.cpp), a self-contained file with its own `assert`-based `main()` as its test suite.
 
 ## Dry Run
 

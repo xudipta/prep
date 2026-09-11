@@ -123,9 +123,11 @@ Space: O(n)
 
 ## Sample Solution
 
-See [`solution.go`](./solution.go) (implements the O(n log n) approach as
+See [`solution.go`](https://github.com/xudipta/prep/blob/main/dsa/dynamic-programming/problems/longest-increasing-subsequence/solution.go) (implements the O(n log n) approach as
 the primary solution, since it demonstrates the DP + Binary Search
 pattern this technique is named for).
+
+It also has a C++ port at [`cpp/solution.cpp`](https://github.com/xudipta/prep/blob/main/dsa/dynamic-programming/problems/longest-increasing-subsequence/cpp/solution.cpp), a self-contained file with its own `assert`-based `main()` as its test suite.
 
 ## Dry Run
 
