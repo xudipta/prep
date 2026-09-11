@@ -68,4 +68,15 @@ jobs:
         fi
 
     - name: Success
-      run: echo "All checks passed." 
+      run: echo "All checks passed."
+
+  cpp-solutions:
+    name: C++ Solutions
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout
+      uses: actions/checkout@v4
+
+    - name: Compile and run every C++ solution port
+      run: bash scripts/verify-cpp-solutions.sh

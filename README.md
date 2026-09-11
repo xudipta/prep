@@ -3,7 +3,10 @@
 **📖 Browse as a website: https://xudipta.github.io/prep/**
 
 A structured, pattern-first repository for preparing for technical interviews and
-competitive programming. Solutions are in Go.
+competitive programming. Solutions are in Go, the primary and fully-tested
+reference implementation; every problem also has a C++ port at
+`cpp/solution.cpp` for readers who want to see (or practice in) both
+languages.
 
 This is not a dump of random problems. It is organized around **problem-solving
 techniques** so that studying it builds transferable intuition — the ability to
@@ -50,8 +53,10 @@ memorized answers to specific questions.
 │       ├── notes.md              one-screen quick revision for the technique
 │       └── problems/<slug>/
 │           ├── README.md         problem write-up (uses templates/problem-template.md)
-│           ├── solution.go        Go solution, package per problem directory
-│           └── solution_test.go   table-driven tests
+│           ├── solution.go        Go solution, package per problem directory (primary, tested)
+│           ├── solution_test.go   table-driven tests for solution.go
+│           └── cpp/
+│               └── solution.cpp   C++ port with its own assert-based main() as its test
 │
 ├── data-structures/             revision notes + Go snippets per data structure
 │
@@ -71,9 +76,13 @@ memorized answers to specific questions.
 ├── tips-tricks/                  checklists and problem-solving frameworks
 ├── revision/                     one cheatsheet per subject, single-screen
 │
-├── playground/, problems/, utils/, scripts/, Makefile
+├── playground/, problems/, utils/, Makefile
 │                                 the original Go scratch workspace (unrelated
 │                                 to the curriculum above — see below)
+├── scripts/                     repo tooling: new_problem.sh (scratch-workspace
+│                                 helper) and verify-cpp-solutions.sh (compiles +
+│                                 runs every dsa/*/problems/*/cpp/solution.cpp;
+│                                 used by CI)
 └── .github/workflows/            CI + GitHub Pages deployment
 ```
 
@@ -191,6 +200,22 @@ per-problem too:
 go test ./dsa/two-pointers/problems/three-sum/...
 ```
 
+## Running the C++ ports
+
+Each `cpp/solution.cpp` is self-contained, with its own `assert`-based
+`main()` acting as its test suite — compile and run it directly:
+
+```bash
+g++ -std=c++17 -Wall -Wextra -O1 dsa/two-pointers/problems/three-sum/cpp/solution.cpp -o /tmp/three-sum
+/tmp/three-sum
+```
+
+To check every C++ port at once (the same check CI runs):
+
+```bash
+bash scripts/verify-cpp-solutions.sh
+```
+
 ## Browsing as a website
 
 This repository is also published as a browsable site via GitHub Pages:
@@ -215,9 +240,14 @@ deploys automatically with no further action needed.
    `dsa/<technique>/problems/<slug>/README.md` and fill it in.
 4. Add `solution.go` (package name = the slug in `snake_case` or a short
    camelCase package name) and a table-driven `solution_test.go`.
-5. Add a row to `PROBLEMS.md` and, if relevant, an entry in `PATTERN-MAP.md`.
-6. Update `PROGRESS.md`.
-7. Run `go build ./... && go vet ./... && go test ./...` before opening a PR.
+5. Optionally add a C++ port at `cpp/solution.cpp`, faithful to the same
+   algorithm and complexity, with its own `assert`-based `main()` in place
+   of a separate test file.
+6. Add a row to `PROBLEMS.md` and, if relevant, an entry in `PATTERN-MAP.md`.
+7. Update `PROGRESS.md`.
+8. Run `go build ./... && go vet ./... && go test ./...`, and
+   `bash scripts/verify-cpp-solutions.sh` if you added a C++ port, before
+   opening a PR.
 
 ## Source quality
 
